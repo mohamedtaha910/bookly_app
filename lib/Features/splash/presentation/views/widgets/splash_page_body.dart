@@ -1,6 +1,10 @@
+import 'package:bookly_app/Features/home/presentation/view_model/home_page.dart';
+import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+
 // import 'package:flutter_svg/flutter_svg.dart';
 // // import 'package:get/get_connect/http/src/utils/utils.dart';
 // // import 'package:get/get_connect/http/src/utils/utils.dart';
@@ -19,7 +23,6 @@ class SplashPageBody extends StatefulWidget {
 
 //   @override
 //   void initState() {
-    
 
 //     animationController = AnimationController(
 //       vsync: this,
@@ -71,7 +74,7 @@ class SplashPageBody extends StatefulWidget {
 //           builder:(context, _) =>
 //            SlideTransition(
 //             position: slidingAnimation,
-            
+
 //             child: Text(
 //               '    Read Free Books',
 //               style: TextStyle(
@@ -97,27 +100,9 @@ class _SplashPageBodyState extends State<SplashPageBody>
 
   @override
   void initState() {
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    );
-
-    slidingAnimation = Tween<Offset>(
-      begin: const Offset(0, 4),
-      end: Offset.zero,
-    ).animate(
-      CurvedAnimation(
-        parent: animationController,
-        curve: Curves.easeOutBack, // 
-      ),
-    );
-
-    fadeAnimation = Tween<double>(
-      begin: 0,
-      end: 1,
-    ).animate(animationController);
-
-    animationController.forward();
+    initSlidingAnimation();
+    
+    navigateToHome();
 
     super.initState();
   }
@@ -133,19 +118,9 @@ class _SplashPageBodyState extends State<SplashPageBody>
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Row(
-          children: [
-            Spacer(),
-            SvgPicture.asset(
-              AssetsPath.books,
-              height: 70,
-            ),
-            SizedBox(width: 16),
-            Image.asset(AssetsPath.logo, width: 210),
-            Spacer(),
-          ],
-        ),
-        SizedBox(height: 12),
+        Image.asset(AssetsPath.logo, width: 250),
+
+        SizedBox(height: 24),
 
         AnimatedBuilder(
           animation: animationController,
@@ -153,15 +128,27 @@ class _SplashPageBodyState extends State<SplashPageBody>
             opacity: fadeAnimation,
             child: SlideTransition(
               position: slidingAnimation,
-              child: Text(
-                'Read Free Books',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  fontStyle: FontStyle.italic,
-                  color: Color(0xffE4C8FB)
-                  ,
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    // AssetsPath.books2,
+                    AssetsPath.bookOpen,
+                    height: 20,
+                    // height: 130,
+                    color: kSecondaryColor,
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    'Read Free Books',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      fontStyle: FontStyle.italic,
+                      color: kSecondaryColor,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -169,4 +156,37 @@ class _SplashPageBodyState extends State<SplashPageBody>
       ],
     );
   }
+
+  void initSlidingAnimation() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
+
+    slidingAnimation =
+        Tween<Offset>(begin: const Offset(0, 2), end: Offset.zero).animate(
+          CurvedAnimation(
+            parent: animationController,
+            curve: Curves.easeOutBack, //
+          ),
+        );
+
+    fadeAnimation = Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(animationController);
+
+    animationController.forward();
+  }
+
+  void navigateToHome() {
+    Future.delayed(const Duration(seconds: 4), () {
+      Get.to(
+        () => HomePage(),
+        transition: Transition.fadeIn,
+        duration: const Duration(milliseconds: 250),
+      );
+    });
+  }
+
 }
