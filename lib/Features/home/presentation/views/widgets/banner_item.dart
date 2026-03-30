@@ -31,15 +31,46 @@ class BannerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsetsDirectional.only(end: 16),
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          fit: BoxFit.fill,
-          image: AssetImage('assets/photo/cover3.webp'),
+    return Stack(
+      children: [
+        Container(
+          margin: EdgeInsetsDirectional.only(end: 16),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: AssetImage('assets/photo/cover3.webp'),
+            ),
+            borderRadius: BorderRadius.circular(16),
+          ),
         ),
-        borderRadius: BorderRadius.circular(16),
-      ),
+        Positioned(
+          top: 8,
+          right: 22,
+          child: Container(
+            // margin: EdgeInsetsDirectional.only(end: 16),
+            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            decoration: BoxDecoration(
+              color: Colors.black38,
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  '8.4',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    // fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(width: 4),
+                Icon(Icons.star, color: Colors.amber, size: 16),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

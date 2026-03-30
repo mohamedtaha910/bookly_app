@@ -21,12 +21,12 @@ class BannersListView extends StatelessWidget {
 
     //======================================================
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.32,
+      height: MediaQuery.of(context).size.height * 0.3,
       width: double.infinity,
       child: CarouselSlider.builder(
         options: CarouselOptions(
           // aspectRatio: 1.7,
-          viewportFraction: 0.55,
+          viewportFraction: 0.5,
           initialPage: 0,
           enableInfiniteScroll: true,
           reverse: false,
