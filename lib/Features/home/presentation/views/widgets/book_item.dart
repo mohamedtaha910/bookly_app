@@ -1,6 +1,8 @@
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BookItem extends StatelessWidget {
@@ -8,69 +10,74 @@ class BookItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      // mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Container(
-          // height: 135,
-          // width: 90,
-          height: 123,
-          width: 85,
-          decoration: BoxDecoration(
-            border: Border.all(width: 2, color: Colors.white10),
-            image: DecorationImage(
-              fit: BoxFit.fill,
-              image: AssetImage('assets/photo/cover2.jpg'),
-            ),
-            borderRadius: BorderRadius.circular(6),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.white10,
-                offset: Offset(0, 2),
-                blurRadius: 4,
+    return GestureDetector(
+      onTap: (){
+        GoRouter.of(context).push(AppRouter.kBoookDetails);
+      },
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        // mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            // height: 135,
+            // width: 90,
+            height: 123,
+            width: 85,
+            decoration: BoxDecoration(
+              border: Border.all(width: 2, color: Colors.white10),
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage('assets/photo/cover2.jpg'),
               ),
-            ],
-          ),
-        ),
-        SizedBox(width: 24),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Harry Potter and the Goblet of Fire',
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: Styles.textStyle20.copyWith(
-                  fontSize: 19,
-                  fontFamily: GoogleFonts.playfairDisplay().fontFamily,
-                  fontWeight: FontWeight.normal,
+              borderRadius: BorderRadius.circular(6),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.white10,
+                  offset: Offset(0, 2),
+                  blurRadius: 4,
                 ),
-              ),
-
-              SizedBox(height: 6),
-              Text(
-                'J.K. Rowling',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 12),
-              ),
-              SizedBox(height: 12),
-              Row(
-                children: [
-                  // SizedBox(width: 4),
-                  PriceBadge(),
-                  Spacer(),
-                  RatingBadge(),
-                  SizedBox(width: 5),
-                  Text(' (2242)', style: Styles.textStyle14),
-                ],
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
+          SizedBox(width: 24),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Harry Potter and the Goblet of Fire',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: Styles.textStyle20.copyWith(
+                    fontSize: 19,
+                    fontFamily: GoogleFonts.playfairDisplay().fontFamily,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+      
+                SizedBox(height: 6),
+                Text(
+                  'J.K. Rowling',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 12),
+                ),
+                SizedBox(height: 12),
+                Row(
+                  children: [
+                    // SizedBox(width: 4),
+                    PriceBadge(),
+                    Spacer(),
+                    RatingBadge(),
+                    SizedBox(width: 5),
+                    Text(' (2242)', style: Styles.textStyle14),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
