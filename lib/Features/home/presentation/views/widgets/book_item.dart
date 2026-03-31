@@ -13,9 +13,14 @@ class BookItem extends StatelessWidget {
       // mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          height: 135,
-          width: 90,
+          // height: 135,
+          // width: 90,
+          height: 123,
+          width: 85,
           decoration: BoxDecoration(
+            border: Border.all(
+              width: 2,
+              color: Colors.white10),
             image: DecorationImage(
               fit: BoxFit.fill,
               image: AssetImage('assets/photo/cover3.webp'),
@@ -33,22 +38,23 @@ class BookItem extends StatelessWidget {
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: Styles.textStyle20.copyWith(
+                  fontSize: 19,
                   fontFamily: GoogleFonts.playfairDisplay().fontFamily,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.normal,
                 ),
               ),
 
-              SizedBox(height: 8),
+              SizedBox(height: 6),
               Text(
                 'J.K. Rowling',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(fontSize: 12),
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 12),
               Row(
                 children: [
-                  Text('41.5 \$', style: Styles.textStyle18),
+                  Text('41.5  \€', style: Styles.textStyle18),
                   // SizedBox(width: 4),
                   Spacer(),
                   FaIcon(

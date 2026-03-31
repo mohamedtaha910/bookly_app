@@ -11,30 +11,52 @@ class HomePageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomAppBar(),
-          // SizedBox(height: 16),
-          SizedBox(height: 8),
-          BannersListView(),
-          SizedBox(height: 24),
-          // SizedBox(height: 20),
-          Text('Best Seller', style: Styles.textStyle18),
-          SizedBox(height: 16),
-          BookItem(),
-        ],
+      child: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        scrollDirection: Axis.vertical,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomAppBar(),
+            // SizedBox(height: 16),
+            SizedBox(height: 8),
+            BannersListView(),
+            SizedBox(height: 24),
+            // SizedBox(height: 20),
+            Text('Best Seller', style: Styles.textStyle18),
+            SizedBox(height: 16),
+            const BooksListView(),
+          ],
+        ),
       ),
     );
   }
 }
+
 class BooksListView extends StatelessWidget {
   const BooksListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox();
+    return ListView.builder(
+      // padding: EdgeInsets.zero,
+      // physics: BouncingScrollPhysics(),
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemCount: 10,
+      itemBuilder: (context, index) => Column(
+        children: [
+          const BookItem(),
+          SizedBox(height: 24),
+          index == 10 - 1 ? const SizedBox.shrink(): Container(
+            margin: EdgeInsets.symmetric(horizontal: 42),
+            width: double.infinity,
+            height: 1,
+            color: Colors.white10,
+          ),
+          SizedBox(height: 24),
+        ],
+      ),
+    );
   }
 }
-
-
