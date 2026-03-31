@@ -23,9 +23,16 @@ class BookItem extends StatelessWidget {
               color: Colors.white10),
             image: DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage('assets/photo/cover3.webp'),
+              image: AssetImage('assets/photo/cover2.jpg'),
             ),
             borderRadius: BorderRadius.circular(6),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.white10,
+                offset: Offset(0, 2),
+                blurRadius: 4,
+              ),
+            ]
           ),
         ),
         SizedBox(width: 24),
@@ -54,16 +61,19 @@ class BookItem extends StatelessWidget {
               SizedBox(height: 12),
               Row(
                 children: [
-                  Text('41.5  \€', style: Styles.textStyle18),
+                  Text('41.5 €', style: Styles.textStyle18),
                   // SizedBox(width: 4),
                   Spacer(),
                   FaIcon(
                     FontAwesomeIcons.solidStar,
                     color: Colors.amber,
-                    size: 16,
+                    size: 14,
                   ),
                   SizedBox(width: 6),
-                  Text('8.4', style: Styles.textStyle16),
+                  Text('8.4', style: Styles.textStyle14.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white
+                  )),
                   SizedBox(width: 3),
                   Text(' (2242)', style: Styles.textStyle14),
                 ],

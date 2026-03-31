@@ -41,6 +41,13 @@ class BannerItem extends StatelessWidget {
               image: AssetImage('assets/photo/cover3.webp'),
             ),
             borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: const Color.fromARGB(255, 62, 1, 73),
+                offset: Offset(2, 2),
+                blurRadius: 4,
+              ),
+            ]
           ),
         ),
         Positioned(
@@ -52,6 +59,7 @@ class BannerItem extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.black38,
               borderRadius: BorderRadius.circular(16),
+              
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
