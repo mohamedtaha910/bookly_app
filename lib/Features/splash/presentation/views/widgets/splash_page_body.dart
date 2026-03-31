@@ -1,9 +1,10 @@
 import 'package:bookly_app/Features/home/presentation/views/home_page.dart';
 import 'package:bookly_app/constant.dart';
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 // import 'package:flutter_svg/flutter_svg.dart';
 // // import 'package:get/get_connect/http/src/utils/utils.dart';
@@ -181,11 +182,7 @@ class _SplashPageBodyState extends State<SplashPageBody>
 
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 4), () {
-      Get.to(
-        () => HomePage(),
-        transition: Transition.fadeIn,
-        duration: const Duration(milliseconds: 250),
-      );
+      GoRouter.of(context).push(AppRouter.kHomePage);
     });
   }
 

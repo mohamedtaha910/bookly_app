@@ -18,9 +18,7 @@ class BookItem extends StatelessWidget {
           height: 123,
           width: 85,
           decoration: BoxDecoration(
-            border: Border.all(
-              width: 2,
-              color: Colors.white10),
+            border: Border.all(width: 2, color: Colors.white10),
             image: DecorationImage(
               fit: BoxFit.fill,
               image: AssetImage('assets/photo/cover2.jpg'),
@@ -32,7 +30,7 @@ class BookItem extends StatelessWidget {
                 offset: Offset(0, 2),
                 blurRadius: 4,
               ),
-            ]
+            ],
           ),
         ),
         SizedBox(width: 24),
@@ -61,20 +59,11 @@ class BookItem extends StatelessWidget {
               SizedBox(height: 12),
               Row(
                 children: [
-                  Text('41.5 €', style: Styles.textStyle18),
                   // SizedBox(width: 4),
+                  PriceBadge(),
                   Spacer(),
-                  FaIcon(
-                    FontAwesomeIcons.solidStar,
-                    color: Colors.amber,
-                    size: 14,
-                  ),
-                  SizedBox(width: 6),
-                  Text('8.4', style: Styles.textStyle14.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white
-                  )),
-                  SizedBox(width: 3),
+                  RatingBadge(),
+                  SizedBox(width: 5),
                   Text(' (2242)', style: Styles.textStyle14),
                 ],
               ),
@@ -82,6 +71,50 @@ class BookItem extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class PriceBadge extends StatelessWidget {
+  const PriceBadge({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+      decoration: BoxDecoration(
+        color: Colors.pink.withAlpha(25),
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Text('41.5 €', style: Styles.textStyle16),
+    );
+  }
+}
+
+class RatingBadge extends StatelessWidget {
+  const RatingBadge({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: Colors.amber.withAlpha(25),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        children: [
+          FaIcon(FontAwesomeIcons.solidStar, color: Colors.amber, size: 14),
+          SizedBox(width: 6),
+          Text(
+            '8.4',
+            style: Styles.textStyle14.copyWith(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
