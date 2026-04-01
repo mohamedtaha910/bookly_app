@@ -26,7 +26,10 @@ class HomePageBody extends StatelessWidget {
             // SizedBox(height: 20),
             Text('Best Seller', style: Styles.textStyle18),
             SizedBox(height: 24),
-            const BooksListView(),
+            Padding(
+              padding: const EdgeInsets.symmetric( horizontal: 8.0),
+              child: const BooksListView(),
+            ),
           ],
         ),
       ),

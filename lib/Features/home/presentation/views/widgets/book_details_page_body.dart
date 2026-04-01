@@ -3,7 +3,6 @@ import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_button.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_details_app_bar.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/similiar_books_list_view.dart';
-import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -60,6 +59,3 @@ class BookDetailsPageBody extends StatelessWidget {
     );
   }
 }
-
-
-

@@ -49,7 +49,7 @@ class BookItem extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: Styles.textStyle20.copyWith(
-                    fontSize: 19,
+                    fontSize: 18,
                     fontFamily: GoogleFonts.playfairDisplay().fontFamily,
                     fontWeight: FontWeight.normal,
                   ),
@@ -93,7 +93,9 @@ class PriceBadge extends StatelessWidget {
         color: Colors.pink.withAlpha(25),
         borderRadius: BorderRadius.circular(14),
       ),
-      child: Text('41.5 €', style: Styles.textStyle16),
+      child: Text('41.5 €', style: Styles.textStyle14.copyWith(
+        fontWeight: FontWeight.bold,
+        color: Colors.white)),
     );
   }
 }
@@ -117,6 +119,7 @@ class RatingBadge extends StatelessWidget {
           Text(
             '8.4',
             style: Styles.textStyle14.copyWith(
+              fontSize: 12,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
