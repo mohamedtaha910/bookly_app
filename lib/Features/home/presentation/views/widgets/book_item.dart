@@ -11,7 +11,7 @@ class BookItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         GoRouter.of(context).push(AppRouter.kBoookDetails);
       },
       child: Row(
@@ -54,7 +54,7 @@ class BookItem extends StatelessWidget {
                     fontWeight: FontWeight.normal,
                   ),
                 ),
-      
+
                 SizedBox(height: 6),
                 Text(
                   'J.K. Rowling',
@@ -110,6 +110,7 @@ class RatingBadge extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           FaIcon(FontAwesomeIcons.solidStar, color: Colors.amber, size: 14),
           SizedBox(width: 6),
@@ -125,3 +126,4 @@ class RatingBadge extends StatelessWidget {
     );
   }
 }
+

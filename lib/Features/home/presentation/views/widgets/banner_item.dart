@@ -24,6 +24,7 @@
 //   }
 // }
 // ============================================
+import 'package:bookly_app/constant.dart';
 import 'package:flutter/material.dart';
 
 class BannerItem extends StatelessWidget {
@@ -43,7 +44,7 @@ class BannerItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: const Color.fromARGB(255, 62, 1, 73),
+                color: kShadowColor,
                 offset: Offset(2, 2),
                 blurRadius: 4,
               ),

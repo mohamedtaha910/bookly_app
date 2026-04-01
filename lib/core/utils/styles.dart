@@ -1,4 +1,5 @@
 // import 'package:bookly_app/constant.dart';
+import 'package:bookly_app/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,10 +24,11 @@ abstract class Styles {
     fontSize: 16,
     fontWeight: FontWeight.w600,
     // color: kSecondaryColor
+    
   );
 
   static TextStyle textStyle30 = GoogleFonts.playfairDisplay(
     fontSize: 30,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.bold,
   );
 }
