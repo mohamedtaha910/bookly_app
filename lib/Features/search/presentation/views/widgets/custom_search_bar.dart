@@ -11,8 +11,8 @@ class CustomSerchBar extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         filled: true,
-        // fillColor: const Color.fromARGB(135, 56, 3, 73),
-        fillColor: Colors.white10,
+        fillColor: Colors.pink.withAlpha(20),
+        // fillColor: Colors.white10,
         prefixIcon: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
           child: SvgPicture.asset(

@@ -1,9 +1,6 @@
 import 'package:bookly_app/Features/home/presentation/views/widgets/books_list_view.dart';
 import 'package:bookly_app/Features/search/presentation/views/widgets/custom_search_bar.dart';
-import 'package:bookly_app/core/utils/assets.dart';
-import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 class SearchPageBody extends StatelessWidget {
@@ -11,14 +8,16 @@ class SearchPageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        scrollDirection: Axis.vertical,
-        child: Column(
+    return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 65,
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+        // elevation: 0,
+        title: Column(
           children: [
-            SizedBox(height: 24),
+            SizedBox(height: 8),
             Row(
               children: [
                 GestureDetector(
@@ -33,12 +32,25 @@ class SearchPageBody extends StatelessWidget {
                 Expanded(child: CustomSerchBar()),
               ],
             ),
-            SizedBox(height: 42),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal:  8.0),
-              child: BooksListView(),
-            ),
+            // SizedBox(height: 8),
           ],
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              
+              SizedBox(height: 36),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: BooksListView(),
+              ),
+            ],
+          ),
         ),
       ),
     );
