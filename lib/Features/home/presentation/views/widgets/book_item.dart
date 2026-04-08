@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +7,8 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BookItem extends StatelessWidget {
-  const BookItem({super.key});
+  const BookItem({super.key, required this.bookModel});
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,10 @@ class BookItem extends StatelessWidget {
               border: Border.all(width: 2, color: Colors.white10),
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: AssetImage('assets/photo/cover2.jpg'),
+                // image: AssetImage('assets/photo/cover2.jpg'),
+                image: NetworkImage(
+                  bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
+                ),
               ),
               borderRadius: BorderRadius.circular(6),
               boxShadow: [
@@ -45,7 +50,7 @@ class BookItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Harry Potter and the Goblet of Fire',
+                  bookModel.volumeInfo.title!,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: Styles.textStyle20.copyWith(
@@ -57,7 +62,7 @@ class BookItem extends StatelessWidget {
 
                 SizedBox(height: 6),
                 Text(
-                  'J.K. Rowling',
+                  bookModel.volumeInfo.authors?[0] ?? 'Unknown Author',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontSize: 12),
@@ -66,9 +71,11 @@ class BookItem extends StatelessWidget {
                 Row(
                   children: [
                     // SizedBox(width: 4),
-                    PriceBadge(),
+                    PriceBadge(price: 'Free'),
                     Spacer(),
-                    RatingBadge(),
+                    RatingBadge(
+                      rating: 3.7 ,
+                    ),
                     SizedBox(width: 5),
                     Text(' (2242)', style: Styles.textStyle14),
                   ],
@@ -83,7 +90,8 @@ class BookItem extends StatelessWidget {
 }
 
 class PriceBadge extends StatelessWidget {
-  const PriceBadge({super.key});
+  const PriceBadge({super.key, this.price});
+  final String? price;
 
   @override
   Widget build(BuildContext context) {
@@ -93,15 +101,21 @@ class PriceBadge extends StatelessWidget {
         color: Colors.pink.withAlpha(25),
         borderRadius: BorderRadius.circular(14),
       ),
-      child: Text('41.5 €', style: Styles.textStyle14.copyWith(
-        fontWeight: FontWeight.bold,
-        color: Colors.white)),
+      child: Text(
+        '$price ',
+        style: Styles.textStyle14.copyWith(
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+      ),
     );
   }
 }
 
 class RatingBadge extends StatelessWidget {
-  const RatingBadge({super.key});
+  const RatingBadge({super.key, required this.rating, });
+  final double rating ;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +131,7 @@ class RatingBadge extends StatelessWidget {
           FaIcon(FontAwesomeIcons.solidStar, color: Colors.amber, size: 14),
           SizedBox(width: 6),
           Text(
-            '8.4',
+            rating.toString(),
             style: Styles.textStyle14.copyWith(
               fontSize: 12,
               fontWeight: FontWeight.bold,
@@ -129,4 +143,3 @@ class RatingBadge extends StatelessWidget {
     );
   }
 }
-

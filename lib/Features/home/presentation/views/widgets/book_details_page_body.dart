@@ -38,7 +38,9 @@ class BookDetailsPageBody extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                RatingBadge(),
+                RatingBadge(
+                  rating: 4.5,
+                ),
                 SizedBox(width: 6),
                 Text('(2390)', style: Styles.textStyle14),
               ],
