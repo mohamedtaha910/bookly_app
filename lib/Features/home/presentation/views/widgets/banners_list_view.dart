@@ -38,7 +38,7 @@ class BannersListView extends StatelessWidget {
             child: CarouselSlider.builder(
               options: CarouselOptions(
                 // aspectRatio: 1.7,
-                viewportFraction: 0.5,
+                viewportFraction: 0.48,
                 initialPage: 0,
                 enableInfiniteScroll: true,
                 reverse: false,
