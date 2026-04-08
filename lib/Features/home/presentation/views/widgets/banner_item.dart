@@ -24,11 +24,13 @@
 //   }
 // }
 // ============================================
+import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/constant.dart';
 import 'package:flutter/material.dart';
 
 class BannerItem extends StatelessWidget {
-  const BannerItem({super.key});
+  const BannerItem({super.key, required this.bookModel});
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +41,14 @@ class BannerItem extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage('assets/photo/cover3.webp'),
+              // image: AssetImage('assets/photo/cover3.webp'),
+              image: NetworkImage(bookModel.volumeInfo.imageLinks!.thumbnail!),
             ),
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
                 color: kShadowColor,
+                // color: Colors.red,
                 offset: Offset(2, 2),
                 blurRadius: 4,
               ),

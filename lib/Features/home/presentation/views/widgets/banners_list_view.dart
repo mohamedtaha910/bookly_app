@@ -1,6 +1,11 @@
+import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/Features/home/presentation/view_model/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/Banner_item.dart';
+import 'package:bookly_app/core/widgets/custom_error_widget.dart';
+import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BannersListView extends StatelessWidget {
   const BannersListView({super.key});
@@ -20,28 +25,47 @@ class BannersListView extends StatelessWidget {
     // );
 
     //======================================================
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.3,
-      width: double.infinity,
-      child: CarouselSlider.builder(
-        options: CarouselOptions(
-          // aspectRatio: 1.7,
-          viewportFraction: 0.5,
-          initialPage: 0,
-          enableInfiniteScroll: true,
-          reverse: false,
-          autoPlay: false,
-          autoPlayInterval: const Duration(seconds: 3),
-          autoPlayAnimationDuration: const Duration(seconds: 3),
-          autoPlayCurve: Curves.fastOutSlowIn,
-          enlargeCenterPage: true,
-          scrollDirection: Axis.horizontal,
-          disableCenter: true,
-        ),
-        itemCount: 15,
-        itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
-            BannerItem(),
-      ),
+    return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
+      builder: (context, state) {
+        if (state is FeaturedBooksError) {
+          return CustomErrorWidget(errorMessage: state.errorMessage);
+        }
+        if (state is FeaturedBooksSuccess) {
+          List<BookModel> books = state.books;
+          return SizedBox(
+            height: MediaQuery.of(context).size.height * 0.3,
+            width: double.infinity,
+            child: CarouselSlider.builder(
+              options: CarouselOptions(
+                // aspectRatio: 1.7,
+                viewportFraction: 0.5,
+                initialPage: 0,
+                enableInfiniteScroll: true,
+                reverse: false,
+                autoPlay: false,
+                autoPlayInterval: const Duration(seconds: 3),
+                autoPlayAnimationDuration: const Duration(seconds: 3),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enlargeCenterPage: true,
+                scrollDirection: Axis.horizontal,
+                disableCenter: true,
+              ),
+              itemCount: books.length,
+              itemBuilder:
+                  (BuildContext context, int itemIndex, int pageViewIndex) =>
+                      BannerItem(
+                        bookModel: books[itemIndex],
+                      ),
+            ),
+          );
+        } else {
+          return CustomLoadingIndicator(
+            paddingValue: 36,
+            height: 25,
+            width: 25,
+          );
+        }
+      },
     );
   }
 }
