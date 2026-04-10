@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/book_item.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_cover.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_button.dart';
@@ -8,7 +9,8 @@ import 'package:flutter/material.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BookDetailsPageBody extends StatelessWidget {
-  const BookDetailsPageBody({super.key});
+  const BookDetailsPageBody({super.key, required this.book});
+  final BookModel book;
 
   @override
   Widget build(BuildContext context) {
@@ -21,19 +23,20 @@ class BookDetailsPageBody extends StatelessWidget {
           children: [
             CustomDetailsAppBar(),
             SizedBox(height: 16),
-            CustomBookCover(),
+            CustomBookCover(imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? '',),
             SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 36.0),
               child: Text(
-                'The Jungle Book',
+                book.volumeInfo.title!,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: Styles.textStyle30,
+                textAlign: TextAlign.center,
               ),
             ),
             SizedBox(height: 8),
-            Text('Rudyard Kipling', style: Styles.textStyle14),
+            Text(book.volumeInfo.authors![0], style: Styles.textStyle14),
             SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/view_model/similar_books_cubit/similar_book_cubit.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/similiar_book_item.dart';
 import 'package:bookly_app/core/widgets/custom_error_widget.dart';
@@ -16,13 +17,16 @@ class SimiliarbooksListView extends StatelessWidget {
           return CustomErrorWidget(errorMessage: state.message);
         }
         if (state is SimilarBookSuccess) {
+          List<BookModel> books = state.books;
           return SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
             child: Row(
               children: [
-                ...List.generate(20, (index) {
-                  return SimiliarBookItem();
+                ...List.generate(books.length, (index) {
+                  return SimiliarBookItem(
+                    book: books[index],
+                  );
                 }),
               ],
             ),
