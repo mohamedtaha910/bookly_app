@@ -30,13 +30,14 @@ import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
+import 'dart:math';
 class BannerItem extends StatelessWidget {
   const BannerItem({super.key, required this.bookModel});
   final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
+    String rating = (Random().nextDouble() * 10).toStringAsFixed(1);
     return GestureDetector(
       onTap: () => GoRouter.of(context).push(AppRouter.kBoookDetails), 
       child: Stack(
@@ -67,8 +68,10 @@ class BannerItem extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    '8.4',
+                  Text
+                    ( rating,
+                      // Random().nextInt(10).toString(),
+                    // Random.secure().nextInt(10).toString(),
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 12,
