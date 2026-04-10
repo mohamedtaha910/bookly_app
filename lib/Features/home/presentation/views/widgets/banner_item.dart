@@ -39,7 +39,7 @@ class BannerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     String rating = (Random().nextDouble() * 10).toStringAsFixed(1);
     return GestureDetector(
-      onTap: () => GoRouter.of(context).push(AppRouter.kBoookDetails), 
+      onTap: () => GoRouter.of(context).push(AppRouter.kBoookDetails , extra: bookModel), 
       child: Stack(
         children: [
           ClipRRect(
