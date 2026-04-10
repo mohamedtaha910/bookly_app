@@ -1,4 +1,4 @@
-import 'package:bookly_app/Features/home/presentation/views/widgets/books_list_view.dart';
+import 'package:bookly_app/Features/home/presentation/views/widgets/best_books_list_view.dart';
 import 'package:bookly_app/Features/search/presentation/views/widgets/custom_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -43,11 +43,10 @@ class SearchPageBody extends StatelessWidget {
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
-              
               SizedBox(height: 36),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: BooksListView(),
+                child: BestBooksListView(),
               ),
             ],
           ),

@@ -6,8 +6,8 @@ import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BooksListView extends StatelessWidget {
-  const BooksListView({super.key});
+class BestBooksListView extends StatelessWidget {
+  const BestBooksListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,16 +19,12 @@ class BooksListView extends StatelessWidget {
         if (state is BestSellerBooksSuccess) {
           List<BookModel> books = state.books;
           return ListView.builder(
-            // padding: EdgeInsets.zero,
-            // physics: BouncingScrollPhysics(),
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             itemCount: books.length,
             itemBuilder: (context, index) => Column(
               children: [
-                BookItem(
-                  bookModel: books[index],
-                ),
+                BookItem(bookModel: books[index]),
                 SizedBox(height: 24),
                 index == books.length - 1
                     ? const SizedBox.shrink()
@@ -42,10 +38,13 @@ class BooksListView extends StatelessWidget {
               ],
             ),
           );
-        }else{
-          return CustomLoadingIndicator(paddingValue: 48, height: 25, width: 25);
+        } else {
+          return CustomLoadingIndicator(
+            paddingValue: 48,
+            height: 25,
+            width: 25,
+          );
         }
-        
       },
     );
   }

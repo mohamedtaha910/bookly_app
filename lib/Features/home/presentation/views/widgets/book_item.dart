@@ -73,9 +73,7 @@ class BookItem extends StatelessWidget {
                     // SizedBox(width: 4),
                     PriceBadge(price: 'Free'),
                     Spacer(),
-                    RatingBadge(
-                      rating: 3.7 ,
-                    ),
+                    RatingBadge(rating: 3.7),
                     SizedBox(width: 5),
                     Text(' (2242)', style: Styles.textStyle14),
                   ],
@@ -101,21 +99,27 @@ class PriceBadge extends StatelessWidget {
         color: Colors.pink.withAlpha(25),
         borderRadius: BorderRadius.circular(14),
       ),
-      child: Text(
-        '$price ',
-        style: Styles.textStyle14.copyWith(
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
-        ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.attach_money_rounded, size: 20, color: Colors.deepOrange),
+          SizedBox(width: 4),
+          Text(
+            '$price ',
+            style: Styles.textStyle14.copyWith(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+        ],
       ),
     );
   }
 }
 
 class RatingBadge extends StatelessWidget {
-  const RatingBadge({super.key, required this.rating, });
-  final double rating ;
-  
+  const RatingBadge({super.key, required this.rating});
+  final double rating;
 
   @override
   Widget build(BuildContext context) {

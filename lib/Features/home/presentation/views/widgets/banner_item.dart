@@ -48,7 +48,7 @@ class BannerItem extends StatelessWidget {
               child: CachedNetworkImage(
                 height:  MediaQuery.of(context).size.height * 0.31,
                 width: 130,
-                imageUrl: bookModel.volumeInfo.imageLinks!.thumbnail!,
+                imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
                 errorWidget: (context, url, error) => const Icon(Icons.error),
                 fit: BoxFit.fill,
               ),
