@@ -18,7 +18,7 @@ class CustomBookCover extends StatelessWidget {
               fit: BoxFit.fill,
               // image: AssetImage('assets/photo/cover3.webp'),
               image: NetworkImage(
-                imageUrl,
+                imageUrl ,
                 
               ),
             ),

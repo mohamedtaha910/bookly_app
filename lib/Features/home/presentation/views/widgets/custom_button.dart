@@ -2,7 +2,8 @@ import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key});
+  const CustomButton({super.key,required this.onPressed});
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class CustomButton extends StatelessWidget {
         children: [
           Expanded(
             child: TextButton(
-              onPressed: () {},
+              onPressed: onPressed,
               style: TextButton.styleFrom(
                 padding: const EdgeInsets.symmetric( vertical: 20),
                 backgroundColor: Colors.white,
@@ -45,7 +46,7 @@ class CustomButton extends StatelessWidget {
           // SizedBox(width: 0.5),
           Expanded(
             child: TextButton(
-              onPressed: () {},
+              onPressed: onPressed,
               style: TextButton.styleFrom(
                 padding: const EdgeInsets.symmetric( vertical: 20),
                 backgroundColor: Colors.deepOrange,

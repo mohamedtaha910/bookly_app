@@ -25,7 +25,7 @@ class SimiliarBookItem extends StatelessWidget {
               image: DecorationImage(
                 fit: BoxFit.fill,
                 image: NetworkImage(
-                  book.volumeInfo.imageLinks?.thumbnail ?? '',
+                  book.volumeInfo.imageLinks?.thumbnail ?? 'https://www.cineciutat.org/storage/app/uploads/public/68a/f96/5dc/68af965dc2d09472226121.jpg',
                 ),
               ),
               borderRadius: BorderRadius.circular(6),

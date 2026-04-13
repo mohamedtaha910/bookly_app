@@ -31,7 +31,7 @@ class BookItem extends StatelessWidget {
                 fit: BoxFit.fill,
                 // image: AssetImage('assets/photo/cover2.jpg'),
                 image: NetworkImage(
-                  bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
+                  bookModel.volumeInfo.imageLinks?.thumbnail ?? 'https://www.cineciutat.org/storage/app/uploads/public/68a/f96/5dc/68af965dc2d09472226121.jpg',
                 ),
               ),
               borderRadius: BorderRadius.circular(6),
