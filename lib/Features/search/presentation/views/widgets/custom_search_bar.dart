@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomSerchBar extends StatelessWidget {
-  const CustomSerchBar({super.key});
+  const CustomSerchBar({super.key, this.onChanged});
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: onChanged,
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.pink.withAlpha(20),

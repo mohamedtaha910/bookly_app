@@ -1,4 +1,4 @@
-import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/data/repos/home_repo.dart';
 import 'package:bookly_app/core/errors/failure.dart';
 import 'package:bookly_app/core/utils/api_service.dart';
@@ -14,7 +14,8 @@ class HomeRepoImplementation implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks() async {
     try {
       var data = await apiService.get(
-        endPoint: 'volumes?Filtering=free-ebooks&Sorting=newest&q=subject:programming',
+        endPoint:
+            'volumes?Filtering=free-ebooks&Sorting=newest&q=subject:programming',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
@@ -33,13 +34,14 @@ class HomeRepoImplementation implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       var data = await apiService.get(
-        endPoint: 'volumes?q=subject:fantasy&Filtering=free-ebooks&Sorting=relevance',
+        endPoint:
+            'volumes?q=subject:fantasy&Filtering=free-ebooks&Sorting=relevance',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
         books.add(BookModel.fromJson(item));
       }
-      return right(books); 
+      return right(books);
     } catch (e) {
       if (e is DioError) {
         return left(ServerFailure.fromDioError(e));
@@ -49,16 +51,19 @@ class HomeRepoImplementation implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks({required String category}) async {
+  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks({
+    required String category,
+  }) async {
     try {
       var data = await apiService.get(
-        endPoint: 'volumes?q=subject:$category&Filtering=free-ebooks&Sorting=relevance',
+        endPoint:
+            'volumes?q=subject:$category&Filtering=free-ebooks&Sorting=relevance',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
         books.add(BookModel.fromJson(item));
       }
-      return right(books); 
+      return right(books);
     } catch (e) {
       if (e is DioError) {
         return left(ServerFailure.fromDioError(e));
@@ -66,5 +71,4 @@ class HomeRepoImplementation implements HomeRepo {
       return left(ServerFailure(e.toString()));
     }
   }
-
 }

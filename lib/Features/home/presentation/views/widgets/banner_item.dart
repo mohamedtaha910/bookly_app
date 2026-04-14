@@ -24,8 +24,8 @@
 //   }
 // }
 // ============================================
-import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
 // import 'package:bookly_app/constant.dart';
+import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
