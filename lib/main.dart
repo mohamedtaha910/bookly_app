@@ -32,18 +32,15 @@ class MyApp extends StatelessWidget {
                 ..fetchBestSellerBooks(),
         ),
       ],
-      child: SafeArea(
-        bottom: false,
-        child: MaterialApp.router(
-          routerConfig: AppRouter.router,
-          theme: ThemeData.dark().copyWith(
-            scaffoldBackgroundColor: kPrimaryColor,
-            textTheme: GoogleFonts.montserratTextTheme(
-              ThemeData.dark().textTheme,
-            ),
+      child: MaterialApp.router(
+        routerConfig: AppRouter.router,
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: kPrimaryColor,
+          textTheme: GoogleFonts.montserratTextTheme(
+            ThemeData.dark().textTheme,
           ),
-          debugShowCheckedModeBanner: false,
         ),
+        debugShowCheckedModeBanner: false,
       ),
     );
   }

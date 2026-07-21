@@ -12,11 +12,13 @@ class CustomSerchBar extends StatelessWidget {
     return TextField(
       onChanged: onChanged,
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         filled: true,
-        fillColor: Colors.pink.withAlpha(20),
-        // fillColor: Colors.white10,
+        // fillColor: Colors.pink.withAlpha(20),
+        fillColor: Colors.white10,
+        // fillColor: Colors.black26,
         prefixIcon: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 0),
           child: SvgPicture.asset(
             AssetsPath.serach,
             height: 22,
@@ -24,22 +26,22 @@ class CustomSerchBar extends StatelessWidget {
           ),
         ),
         suffixIcon: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 0),
           child: Icon(Icons.mic, size: 24, color: Colors.white54),
         ),
         hintText: 'Search ',
         hintStyle: Styles.textStyle16.copyWith(color: Colors.white54),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25),
-          borderSide: BorderSide(color: Colors.white54, width: 0.2),
+          borderSide: BorderSide(color: Colors.white54, width: 0.05),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25),
-          borderSide: BorderSide(color: Colors.white54, width: 0.2),
+          borderSide: BorderSide(color: Colors.white54, width: 0.05),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25),
-          borderSide: BorderSide(color: Colors.white54, width: 0.4),
+          borderSide: BorderSide(color: Colors.white54, width: 0.5),
         ),
       ),
     );

@@ -17,7 +17,7 @@ class CustomAppBar extends StatelessWidget {
           Image.asset(
             AssetsPath.logo,
             //  width: 100,
-            height: 22,
+            height: 28,
             // height: 20,
           ),
 
@@ -26,12 +26,33 @@ class CustomAppBar extends StatelessWidget {
               GoRouter.of(context).push(AppRouter.kSearchPage);
             },
             child: Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: Colors.white10,
+              padding: const EdgeInsets.only(
+                right: 10,
+                left: 10,
+                top: 10,
+                bottom: 10,
               ),
-              child: SvgPicture.asset(AssetsPath.serach, height: 22),
+              // padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                // color: Colors.white10,
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.white.withAlpha(60),
+                    Colors.white.withAlpha(30),
+                    Colors.white.withAlpha(10),
+                  ],
+                  begin: AlignmentGeometry.topCenter,
+                  end: AlignmentGeometry.bottomCenter,
+                ),
+                border: Border(
+                  top: BorderSide(
+                    color: Colors.grey.withAlpha(120),
+                    width: 0.95,
+                  ),
+                ),
+              ),
+              child: SvgPicture.asset(AssetsPath.serach, height: 28),
             ),
           ),
         ],

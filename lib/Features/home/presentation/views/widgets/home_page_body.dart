@@ -18,6 +18,7 @@ class HomePageBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(height: 25),
             CustomAppBar(),
             // SizedBox(height: 16),
             SizedBox(height: 8),
