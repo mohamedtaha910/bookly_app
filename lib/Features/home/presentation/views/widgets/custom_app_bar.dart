@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
@@ -9,8 +11,8 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20.0),
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 14),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -20,7 +22,7 @@ class CustomAppBar extends StatelessWidget {
             height: 28,
             // height: 20,
           ),
-
+    
           GestureDetector(
             onTap: () {
               GoRouter.of(context).push(AppRouter.kSearchPage);
@@ -34,12 +36,12 @@ class CustomAppBar extends StatelessWidget {
               ),
               // padding: EdgeInsets.all(8),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(100),
                 // color: Colors.white10,
                 gradient: LinearGradient(
                   colors: [
                     Colors.white.withAlpha(60),
-                    Colors.white.withAlpha(30),
+                    Colors.white.withAlpha(40),
                     Colors.white.withAlpha(10),
                   ],
                   begin: AlignmentGeometry.topCenter,

@@ -15,7 +15,7 @@ class SearchPageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap:(){
+      onTap: () {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
@@ -42,11 +42,11 @@ class SearchPageBody extends StatelessWidget {
                   Expanded(
                     child: CustomSerchBar(
                       onChanged: (value) {
-                        if (value.isNotEmpty && value.trim() != '') {
-                          BlocProvider.of<SearchBooksCubit>(
-                            context,
-                          ).fetchSearchedBooks(searchQuery: value);
-                        }
+                        // if (value.isNotEmpty && value.trim() != '') {
+                        BlocProvider.of<SearchBooksCubit>(
+                          context,
+                        ).fetchSearchedBooks(searchQuery: value);
+                        // }
                       },
                     ),
                   ),

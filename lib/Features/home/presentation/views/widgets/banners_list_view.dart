@@ -33,16 +33,16 @@ class BannersListView extends StatelessWidget {
         if (state is FeaturedBooksSuccess) {
           List<BookModel> books = state.books;
           return SizedBox(
-            height: MediaQuery.of(context).size.height * 0.3,
+            height: MediaQuery.of(context).size.height * 0.28,
             width: double.infinity,
             child: CarouselSlider.builder(
               options: CarouselOptions(
                 // aspectRatio: 1.7,
-                viewportFraction: 0.48,
+                viewportFraction: 0.44,
                 initialPage: 0,
                 enableInfiniteScroll: true,
                 reverse: false,
-                autoPlay: false,
+                autoPlay: true,
                 autoPlayInterval: const Duration(seconds: 3),
                 autoPlayAnimationDuration: const Duration(seconds: 3),
                 autoPlayCurve: Curves.fastOutSlowIn,
@@ -53,9 +53,7 @@ class BannersListView extends StatelessWidget {
               itemCount: books.length,
               itemBuilder:
                   (BuildContext context, int itemIndex, int pageViewIndex) =>
-                      BannerItem(
-                        bookModel: books[itemIndex],
-                      ),
+                      BannerItem(bookModel: books[itemIndex]),
             ),
           );
         } else {

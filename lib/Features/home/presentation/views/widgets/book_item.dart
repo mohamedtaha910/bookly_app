@@ -1,3 +1,4 @@
+import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/styles.dart';
@@ -14,7 +15,7 @@ class BookItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBoookDetails , extra: bookModel);
+        GoRouter.of(context).push(AppRouter.kBoookDetails, extra: bookModel);
       },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,23 +24,28 @@ class BookItem extends StatelessWidget {
           Container(
             // height: 135,
             // width: 90,
-            height: 123,
-            width: 85,
+            height: 130,
+            width: 90,
             decoration: BoxDecoration(
-              border: Border.all(width: 2, color: Colors.white10),
+              border: Border.all(
+                width: 0.6,
+                color: Colors.white38.withAlpha(50),
+              ),
               image: DecorationImage(
                 fit: BoxFit.fill,
                 // image: AssetImage('assets/photo/cover2.jpg'),
                 image: NetworkImage(
-                  bookModel.volumeInfo.imageLinks?.thumbnail ?? 'https://www.cineciutat.org/storage/app/uploads/public/68a/f96/5dc/68af965dc2d09472226121.jpg',
+                  bookModel.volumeInfo.imageLinks?.thumbnail ??
+                      'https://www.cineciutat.org/storage/app/uploads/public/68a/f96/5dc/68af965dc2d09472226121.jpg',
                 ),
               ),
               borderRadius: BorderRadius.circular(6),
+
               boxShadow: [
                 BoxShadow(
-                  color: Colors.white10,
-                  offset: Offset(0, 2),
-                  blurRadius: 4,
+                  color: kShadowColor,
+                  offset: Offset(0, 1),
+                  blurRadius: 6,
                 ),
               ],
             ),
@@ -54,7 +60,7 @@ class BookItem extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: Styles.textStyle20.copyWith(
-                    fontSize: 18,
+                    fontSize: 17,
                     fontFamily: GoogleFonts.playfairDisplay().fontFamily,
                     fontWeight: FontWeight.normal,
                   ),
@@ -75,7 +81,7 @@ class BookItem extends StatelessWidget {
                     Spacer(),
                     RatingBadge(rating: 3.7),
                     SizedBox(width: 5),
-                    Text(' (2242)', style: Styles.textStyle14),
+                    Text('( 2242 )', style: Styles.textStyle14),
                   ],
                 ),
               ],
@@ -94,19 +100,32 @@ class PriceBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
-        color: Colors.pink.withAlpha(25),
-        borderRadius: BorderRadius.circular(14),
+        gradient: LinearGradient(
+          colors: [
+            Colors.pink.withAlpha(40),
+            Colors.pink.withAlpha(20),
+            Colors.pink.withAlpha(20),
+          ],
+          begin: AlignmentGeometry.topCenter,
+          end: AlignmentGeometry.bottomCenter,
+        ),
+
+        borderRadius: BorderRadius.circular(100),
+        border: Border(
+          top: BorderSide(color: Colors.pink.withAlpha(50), width: 0.8),
+        ),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(Icons.attach_money_rounded, size: 20, color: Colors.deepOrange),
-          SizedBox(width: 4),
+          SizedBox(width: 3),
           Text(
             '$price ',
             style: Styles.textStyle14.copyWith(
+              fontSize: 13,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -124,20 +143,32 @@ class RatingBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       decoration: BoxDecoration(
-        color: Colors.amber.withAlpha(25),
-        borderRadius: BorderRadius.circular(12),
+        gradient: LinearGradient(
+          colors: [
+            Colors.amber.withAlpha(40),
+            Colors.amber.withAlpha(30),
+            Colors.amber.withAlpha(20),
+          ],
+          begin: AlignmentGeometry.topCenter,
+          end: AlignmentGeometry.bottomCenter,
+        ),
+
+        borderRadius: BorderRadius.circular(100),
+        border: Border(
+          top: BorderSide(color: Colors.amber.withAlpha(50), width: 0.8),
+        ),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          FaIcon(FontAwesomeIcons.solidStar, color: Colors.amber, size: 14),
+          FaIcon(FontAwesomeIcons.solidStar, color: Colors.amber, size: 13),
           SizedBox(width: 6),
           Text(
             rating.toString(),
             style: Styles.textStyle14.copyWith(
-              fontSize: 12,
+              fontSize: 12.5,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),

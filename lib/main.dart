@@ -7,8 +7,17 @@ import 'package:bookly_app/core/utils/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+// import 'package:flutter/services.dart';
 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+
+  // SystemChrome.setSystemUIOverlayStyle(
+  //   const SystemUiOverlayStyle(
+  //     statusBarIconBrightness: Brightness.dark,
+  //     statusBarBrightness: Brightness.light,
+  //   ),
+  // );
   setUpServiceLocator();
   runApp(const MyApp());
 }
@@ -36,6 +45,13 @@ class MyApp extends StatelessWidget {
         routerConfig: AppRouter.router,
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: kPrimaryColor,
+
+          // appBarTheme: const AppBarTheme(
+          //   systemOverlayStyle: SystemUiOverlayStyle(
+          //     statusBarColor: kPrimaryColor,
+          //     statusBarIconBrightness: Brightness.dark,
+          //   ),
+          // ),
           textTheme: GoogleFonts.montserratTextTheme(
             ThemeData.dark().textTheme,
           ),

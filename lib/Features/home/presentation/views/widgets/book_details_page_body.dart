@@ -42,7 +42,13 @@ class BookDetailsPageBody extends StatelessWidget {
               ),
             ),
             SizedBox(height: 8),
-            Text(book.volumeInfo.authors![0], style: Styles.textStyle14),
+            Text(
+              book.volumeInfo.authors == null
+                  ? 'UnKnown Author'
+                  : book.volumeInfo.authors![0],
+              style: Styles.textStyle14,
+              textAlign: TextAlign.center,
+            ),
             SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

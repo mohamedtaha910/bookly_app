@@ -31,6 +31,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'dart:math';
+
 class BannerItem extends StatelessWidget {
   const BannerItem({super.key, required this.bookModel});
   final BookModel bookModel;
@@ -39,7 +40,8 @@ class BannerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     String rating = (Random().nextDouble() * 10).toStringAsFixed(1);
     return GestureDetector(
-      onTap: () => GoRouter.of(context).push(AppRouter.kBoookDetails , extra: bookModel), 
+      onTap: () =>
+          GoRouter.of(context).push(AppRouter.kBoookDetails, extra: bookModel),
       child: Stack(
         children: [
           ClipRRect(
@@ -47,10 +49,15 @@ class BannerItem extends StatelessWidget {
             child: AspectRatio(
               aspectRatio: 0.7,
               child: CachedNetworkImage(
-                height:  MediaQuery.of(context).size.height * 0.31,
+                height: MediaQuery.of(context).size.height * 0.31,
                 width: 130,
-                imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? 'https://www.cineciutat.org/storage/app/uploads/public/68a/f96/5dc/68af965dc2d09472226121.jpg',
-                errorWidget: (context, url, error) => const Icon(Icons.error),
+                imageUrl:
+                    bookModel.volumeInfo.imageLinks?.thumbnail ??
+                    'https://www.cineciutat.org/storage/app/uploads/public/68a/f96/5dc/68af965dc2d09472226121.jpg',
+                errorWidget: (context, url, error) => Icon(
+                  Icons.image_not_supported_rounded,
+                  size: MediaQuery.of(context).size.height * 0.31,
+                ),
                 fit: BoxFit.fill,
               ),
             ),
@@ -68,9 +75,9 @@ class BannerItem extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text
-                    ( rating,
-                      // Random().nextInt(10).toString(),
+                  Text(
+                    rating,
+                    // Random().nextInt(10).toString(),
                     // Random.secure().nextInt(10).toString(),
                     style: const TextStyle(
                       color: Colors.white,

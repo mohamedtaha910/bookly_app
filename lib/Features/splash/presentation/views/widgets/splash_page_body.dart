@@ -101,7 +101,7 @@ class _SplashPageBodyState extends State<SplashPageBody>
   @override
   void initState() {
     initSlidingAnimation();
-    
+
     navigateToHome();
 
     super.initState();
@@ -181,8 +181,7 @@ class _SplashPageBodyState extends State<SplashPageBody>
 
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 4), () {
-      GoRouter.of(context).push(AppRouter.kHomePage);
+      GoRouter.of(context).pushReplacement(AppRouter.kHomePage);
     });
   }
-
 }

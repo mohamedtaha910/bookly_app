@@ -3,7 +3,6 @@ import 'package:bookly_app/Features/home/presentation/view_model/similar_books_c
 import 'package:bookly_app/Features/home/presentation/views/widgets/book_details_page_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class BookDetailsPage extends StatefulWidget {
   const BookDetailsPage({super.key, required this.book});
@@ -21,10 +20,11 @@ class _BookDetailsPageState extends State<BookDetailsPage> {
     );
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BookDetailsPageBody(book: widget.book,),
+      body: SafeArea(child: BookDetailsPageBody(book: widget.book)),
     );
   }
 }
