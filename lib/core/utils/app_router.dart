@@ -1,3 +1,5 @@
+import 'package:bookly_app/Features/favourites/presentation/views/favourite_page.dart';
+import 'package:bookly_app/Features/home/presentation/views/app_root.dart';
 import 'package:bookly_app/Features/search/data/repos/search_repo_implementation.dart';
 import 'package:bookly_app/Features/search/presentation/view_model/search_books_cubit.dart';
 import 'package:bookly_app/core/models/book_model/book_model.dart';
@@ -15,6 +17,8 @@ abstract class AppRouter {
   static String kHomePage = '/homePage';
   static String kBoookDetails = '/bookDetails';
   static String kSearchPage = '/searchPage';
+  static String kFavPage = '/FfavouritePage';
+  static String kRootPage = '/rootPage';
 
   static final router = GoRouter(
     routes: [
@@ -31,10 +35,13 @@ abstract class AppRouter {
       GoRoute(
         path: kSearchPage,
         builder: (context, state) => BlocProvider(
-          create: (context) => SearchBooksCubit(getIt.get<SearchRepoImplementation>()),
-          child: SearchPage(),
+          create: (context) =>
+              SearchBooksCubit(getIt.get<SearchRepoImplementation>()),
+          child: SearchPage(isBack: true),
         ),
       ),
+      GoRoute(path: kFavPage, builder: (context, state) => FavouritePage()),
+      GoRoute(path: kRootPage, builder: (context, state) => AppRoot()),
     ],
   );
 }

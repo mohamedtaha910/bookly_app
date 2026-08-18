@@ -1,4 +1,10 @@
+
+import 'package:hive/hive.dart';
+part 'search_info.g.dart';
+
+@HiveType(typeId: 9)
 class SearchInfo {
+  @HiveField(0)
 	String? textSnippet;
 
 	SearchInfo({this.textSnippet});

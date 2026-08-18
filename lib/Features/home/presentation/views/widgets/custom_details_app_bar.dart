@@ -9,7 +9,7 @@ class CustomDetailsAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20.0),
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Row(
         children: [
           GestureDetector(
@@ -68,10 +68,9 @@ class CustomDetailsAppBar extends StatelessWidget {
                 ),
               ),
               child: GestureDetector(
-                onTap: () {
-                  
-                },
-                child: Icon(Icons.bookmark_add_rounded, color: kSecondaryColor)),
+                onTap: () {},
+                child: Icon(Icons.bookmark_add_rounded, color: kSecondaryColor),
+              ),
             ),
           ),
         ],

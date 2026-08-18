@@ -1,6 +1,12 @@
+
+import 'package:hive/hive.dart';
+part 'pdf.g.dart';
+@HiveType(typeId: 6) 
 class Pdf {
+  @HiveField(0)
 	bool? isAvailable;
 
+  @HiveField(1)
 	Pdf({this.isAvailable});
 
 	factory Pdf.fromJson(Map<String, dynamic> json) => Pdf(

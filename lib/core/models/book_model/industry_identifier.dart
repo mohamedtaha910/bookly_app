@@ -1,6 +1,14 @@
+
+import 'package:hive/hive.dart';
+part 'industry_identifier.g.dart';
+
+@HiveType(typeId: 4) 
 class IndustryIdentifier {
+  @HiveField(0)
 	String? type;
-	String? identifier;
+	
+   @HiveField(1)
+  String? identifier;
 
 	IndustryIdentifier({this.type, this.identifier});
 

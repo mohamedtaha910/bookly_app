@@ -10,7 +10,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class SearchPageBody extends StatelessWidget {
-  const SearchPageBody({super.key});
+  const SearchPageBody({super.key, required this.isBack});
+  final bool isBack;
 
   @override
   Widget build(BuildContext context) {
@@ -30,14 +31,16 @@ class SearchPageBody extends StatelessWidget {
               SizedBox(height: 16),
               Row(
                 children: [
-                  GestureDetector(
-                    onTap: () => GoRouter.of(context).pop(),
-                    child: Icon(
-                      Icons.arrow_back_ios_new_rounded,
-                      size: 22,
-                      color: Colors.white54,
-                    ),
-                  ),
+                  isBack
+                      ? GestureDetector(
+                          onTap: () => GoRouter.of(context).pop(),
+                          child: Icon(
+                            Icons.arrow_back_ios_new_rounded,
+                            size: 22,
+                            color: Colors.white54,
+                          ),
+                        )
+                      : SizedBox.shrink(),
                   SizedBox(width: 12),
                   Expanded(
                     child: CustomSerchBar(

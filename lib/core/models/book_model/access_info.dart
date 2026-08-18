@@ -1,17 +1,41 @@
+import 'package:hive/hive.dart';
+
 import 'epub.dart';
 import 'pdf.dart';
 
+part 'access_info.g.dart';
+
+@HiveType(typeId: 1) 
 class AccessInfo {
+  @HiveField(0)
 	String? country;
+
+  @HiveField(1)
 	String? viewability;
+
+  @HiveField(2)
 	bool? embeddable;
+
+  @HiveField(3)
 	bool? publicDomain;
+
+  @HiveField(4)
 	String? textToSpeechPermission;
+
+  @HiveField(5)
 	Epub? epub;
+
+  @HiveField(6)
 	Pdf? pdf;
+
+  @HiveField(7)
 	String? webReaderLink;
+
+  @HiveField(8)  
 	String? accessViewStatus;
-	bool? quoteSharingAllowed;
+
+	@HiveField(9)
+  bool? quoteSharingAllowed;
 
 	AccessInfo({
 		this.country, 

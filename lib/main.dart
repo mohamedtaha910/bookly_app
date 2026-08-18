@@ -2,22 +2,20 @@ import 'package:bookly_app/Features/home/data/repos/home_repo_implementation.dar
 import 'package:bookly_app/Features/home/presentation/view_model/best_seller_cubit/best_seller_books_cubit.dart';
 import 'package:bookly_app/Features/home/presentation/view_model/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/constant.dart';
+import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 // import 'package:flutter/services.dart';
 
-void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(BookModelAdapter()); //register 
 
-  // SystemChrome.setSystemUIOverlayStyle(
-  //   const SystemUiOverlayStyle(
-  //     statusBarIconBrightness: Brightness.dark,
-  //     statusBarBrightness: Brightness.light,
-  //   ),
-  // );
+  await Hive.openBox<BookModel>(kBooksBox);
   setUpServiceLocator();
   runApp(const MyApp());
 }

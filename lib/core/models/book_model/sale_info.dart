@@ -1,7 +1,19 @@
+
+import 'package:hive/hive.dart';
+part 'sale_info.g.dart';
+
+@HiveType(typeId: 8) 
 class SaleInfo {
+  @HiveField(0)
 	String? country;
+
+  @HiveField(1)
 	String? saleability;
-	bool? isEbook;
+	
+  @HiveField(2)
+  bool? isEbook;
+
+  @HiveField(3)
 	String? buyLink;
 
 	SaleInfo({this.country, this.saleability, this.isEbook, this.buyLink});

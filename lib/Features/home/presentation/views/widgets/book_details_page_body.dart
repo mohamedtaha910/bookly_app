@@ -6,6 +6,7 @@ import 'package:bookly_app/Features/home/presentation/views/widgets/custom_detai
 import 'package:bookly_app/Features/home/presentation/views/widgets/similiar_books_list_view.dart';
 import 'package:bookly_app/core/functions/launch_url.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -50,9 +51,59 @@ class BookDetailsPageBody extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Wrap(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              alignment: WrapAlignment.center,
+              runSpacing: 10,
               children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.pink.withAlpha(40),
+                        Colors.pink.withAlpha(20),
+                        Colors.pink.withAlpha(20),
+                      ],
+                      begin: AlignmentGeometry.topCenter,
+                      end: AlignmentGeometry.bottomCenter,
+                    ),
+
+                    borderRadius: BorderRadius.circular(100),
+                    border: Border(
+                      top: BorderSide(
+                        color: Colors.pink.withAlpha(50),
+                        width: 0.8,
+                      ),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        CupertinoIcons.ticket_fill,
+                        size: 20,
+                        color: Colors.deepOrange,
+                      ),
+                      SizedBox(width: 6),
+                      Text(
+                        book.volumeInfo.categories == null
+                            ? 'UnCategorized'
+                            : book.volumeInfo.categories![0],
+                        style: Styles.textStyle14.copyWith(
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                SizedBox(width: 12),
                 RatingBadge(rating: 4.5),
                 SizedBox(width: 6),
                 Text('(2390)', style: Styles.textStyle14),
