@@ -28,7 +28,7 @@ class BestBooksListView extends StatelessWidget {
                 BookItem(bookModel: books[index]),
                 SizedBox(height: 24),
                 index == books.length - 1
-                    ? const SizedBox.shrink()
+                    ? const SizedBox(height: 65)
                     : Container(
                         margin: EdgeInsets.symmetric(horizontal: 42),
                         width: double.infinity,

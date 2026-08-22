@@ -24,7 +24,7 @@ class BookDetailsPageBody extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            CustomDetailsAppBar(),
+            CustomDetailsAppBar(book: book,),
             SizedBox(height: 16),
             CustomBookCover(
               imageUrl:

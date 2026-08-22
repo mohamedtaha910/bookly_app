@@ -1,10 +1,14 @@
+import 'package:bookly_app/Features/favourites/presentation/view_model/fav_cubit/favourite_cubit.dart';
 import 'package:bookly_app/constant.dart';
+import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomDetailsAppBar extends StatelessWidget {
-  const CustomDetailsAppBar({super.key});
+  const CustomDetailsAppBar({super.key, required this.book});
+  final BookModel book;
 
   @override
   Widget build(BuildContext context) {
@@ -67,9 +71,26 @@ class CustomDetailsAppBar extends StatelessWidget {
                   ),
                 ),
               ),
-              child: GestureDetector(
-                onTap: () {},
-                child: Icon(Icons.bookmark_add_rounded, color: kSecondaryColor),
+              child: BlocBuilder<FavouriteCubit, FavouriteState>(
+                builder: (context, state) {
+                  return GestureDetector(
+                    onTap: () {
+                      BlocProvider.of<FavouriteCubit>(
+                        context,
+                      ).toggleFavourite(book);
+                      BlocProvider.of<FavouriteCubit>(context).loadFavorites();
+                    },
+                    child:
+                        BlocProvider.of<FavouriteCubit>(
+                          context,
+                        ).isFavourite(book.id)
+                        ? Icon(Icons.bookmark_added_rounded, color: Colors.red)
+                        : Icon(
+                            Icons.bookmark_add_rounded,
+                            color: kSecondaryColor,
+                          ),
+                  );
+                },
               ),
             ),
           ),

@@ -66,14 +66,14 @@ class BookItem extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 6),
+                SizedBox(height: 8),
                 Text(
                   bookModel.volumeInfo.authors?[0] ?? 'Unknown Author',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontSize: 12),
                 ),
-                SizedBox(height: 12),
+                SizedBox(height: 16),
                 Row(
                   children: [
                     // SizedBox(width: 4),
@@ -100,7 +100,7 @@ class PriceBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 2),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -125,7 +125,7 @@ class PriceBadge extends StatelessWidget {
           Text(
             '$price ',
             style: Styles.textStyle14.copyWith(
-              fontSize: 13,
+              fontSize: 12,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -143,7 +143,7 @@ class RatingBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 2),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -168,7 +168,7 @@ class RatingBadge extends StatelessWidget {
           Text(
             rating.toString(),
             style: Styles.textStyle14.copyWith(
-              fontSize: 12.5,
+              fontSize: 12,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
