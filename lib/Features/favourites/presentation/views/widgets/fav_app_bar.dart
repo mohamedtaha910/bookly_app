@@ -1,5 +1,6 @@
 import 'package:bookly_app/Features/favourites/presentation/view_model/fav_cubit/favourite_cubit.dart';
 import 'package:bookly_app/Features/favourites/presentation/views/widgets/Custom_dialog_button.dart';
+import 'package:bookly_app/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -58,6 +59,15 @@ class FavouriteAppBar extends StatelessWidget {
       context: context,
       builder: (context) {
         return AlertDialog(
+          backgroundColor: kPrimaryColor,
+          contentPadding: EdgeInsets.symmetric(vertical: 24, horizontal: 36),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+            // side: BorderSide(
+            //   color: Colors.grey.shade200.withAlpha(150),
+            //   width: 0.1,
+            // ),
+          ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

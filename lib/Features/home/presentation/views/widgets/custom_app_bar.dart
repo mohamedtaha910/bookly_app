@@ -22,7 +22,7 @@ class CustomAppBar extends StatelessWidget {
             height: 28,
             // height: 20,
           ),
-    
+
           GestureDetector(
             onTap: () {
               GoRouter.of(context).push(AppRouter.kSearchPage);
@@ -54,7 +54,7 @@ class CustomAppBar extends StatelessWidget {
                   ),
                 ),
               ),
-              child: SvgPicture.asset(AssetsPath.serach, height: 28),
+              child: SvgPicture.asset(AssetsPath.serach, height: 26),
             ),
           ),
         ],
