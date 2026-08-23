@@ -28,7 +28,10 @@ class BannersListView extends StatelessWidget {
     return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
       builder: (context, state) {
         if (state is FeaturedBooksError) {
-          return CustomErrorWidget(errorMessage: state.errorMessage);
+          return CustomErrorWidget(
+            errorMessage: state.errorMessage,
+            iconSize: 50,
+          );
         }
         if (state is FeaturedBooksSuccess) {
           List<BookModel> books = state.books;

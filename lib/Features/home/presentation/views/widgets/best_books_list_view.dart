@@ -14,7 +14,10 @@ class BestBooksListView extends StatelessWidget {
     return BlocBuilder<BestSellerBooksCubit, BestSellerBooksState>(
       builder: (context, state) {
         if (state is BestSellerBooksError) {
-          return CustomErrorWidget(errorMessage: state.errorMessage);
+          return CustomErrorWidget(
+            errorMessage: state.errorMessage,
+            iconSize: 50,
+          );
         }
         if (state is BestSellerBooksSuccess) {
           List<BookModel> books = state.books;

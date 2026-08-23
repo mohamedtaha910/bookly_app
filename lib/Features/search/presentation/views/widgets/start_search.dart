@@ -11,13 +11,33 @@ class StartSearch extends StatelessWidget {
         // crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(
-            'assets/icons/icon.svg',
-            height: 90,
-            // color: Colors.pink.withAlpha(50),
-            color: Colors.white38,
+          Container(
+            padding: EdgeInsets.all(40),
+            decoration: BoxDecoration(
+              // borderRadius: BorderRadius.circular(300),
+              shape: BoxShape.circle,
+              // color: Colors.white10,
+              gradient: LinearGradient(
+                colors: [
+                  Colors.white.withAlpha(60),
+                  Colors.white.withAlpha(40),
+                  Colors.white.withAlpha(10),
+                ],
+                begin: AlignmentGeometry.topCenter,
+                end: AlignmentGeometry.bottomCenter,
+              ),
+              border: Border(
+                top: BorderSide(color: Colors.grey.withAlpha(120), width: 0.95),
+              ),
+            ),
+            child: SvgPicture.asset(
+              'assets/icons/icon.svg',
+              height: 90,
+              // color: Colors.pink.withAlpha(50),
+              color: Colors.white54,
+            ),
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 24),
           Text(
             'Search For Books Now',
             style: TextStyle(
