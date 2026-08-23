@@ -32,7 +32,7 @@ class StartSearch extends StatelessWidget {
             ),
             child: SvgPicture.asset(
               'assets/icons/icon.svg',
-              height: 90,
+              height: 75,
               // color: Colors.pink.withAlpha(50),
               color: Colors.white54,
             ),

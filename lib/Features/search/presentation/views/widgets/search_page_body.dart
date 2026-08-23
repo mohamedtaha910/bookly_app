@@ -74,7 +74,7 @@ class SearchPageBody extends StatelessWidget {
                           ),
                         )
                       : SizedBox.shrink(),
-                  SizedBox(width: 12),
+                  isBack ? SizedBox(width: 12) : SizedBox.shrink(),
                   Expanded(
                     child: CustomSerchBar(
                       onChanged: (value) {
@@ -100,7 +100,10 @@ class SearchPageBody extends StatelessWidget {
                   return StartSearch();
                 }
                 if (state is SearchBooksError) {
-                  return CustomErrorWidget(errorMessage: state.errorMessage);
+                  return CustomErrorWidget(
+                    errorMessage: state.errorMessage,
+                    iconSize: 60,
+                  );
                 }
                 if (state is SearchBooksSuccess) {
                   List<BookModel> books = state.books;
@@ -146,6 +149,8 @@ class SearchPageBody extends StatelessWidget {
                 }
               },
             ),
+
+            // shadow
             Positioned(
               top: 0,
               right: 0,

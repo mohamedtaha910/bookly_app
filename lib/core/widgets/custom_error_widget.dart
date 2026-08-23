@@ -23,9 +23,9 @@ class CustomErrorWidget extends StatelessWidget {
               // color: Colors.white10,
               gradient: LinearGradient(
                 colors: [
-                  Colors.pink.withAlpha(100),
-                  Colors.pink.withAlpha(50),
-                  Colors.pink.withAlpha(30),
+                  Colors.pink.withAlpha(80),
+                  Colors.pink.withAlpha(40),
+                  Colors.pink.withAlpha(20),
                 ],
                 begin: AlignmentGeometry.topCenter,
                 end: AlignmentGeometry.bottomCenter,
