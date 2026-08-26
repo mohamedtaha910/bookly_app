@@ -5,7 +5,6 @@ import 'package:bookly_app/Features/search/data/repos/search_repo_implementation
 import 'package:bookly_app/Features/search/presentation/view_model/search_books_cubit.dart';
 import 'package:bookly_app/Features/search/presentation/views/search_page.dart';
 import 'package:bookly_app/constant.dart';
-import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

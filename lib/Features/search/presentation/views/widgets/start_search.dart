@@ -12,7 +12,7 @@ class StartSearch extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            padding: EdgeInsets.all(40),
+            padding: EdgeInsets.all(28),
             decoration: BoxDecoration(
               // borderRadius: BorderRadius.circular(300),
               shape: BoxShape.circle,
@@ -27,21 +27,16 @@ class StartSearch extends StatelessWidget {
                 end: AlignmentGeometry.bottomCenter,
               ),
               border: Border(
-                top: BorderSide(color: Colors.grey.withAlpha(120), width: 0.95),
+                top: BorderSide(color: Colors.grey.withAlpha(120), width: 1.4),
               ),
             ),
-            child: SvgPicture.asset(
-              'assets/icons/icon.svg',
-              height: 75,
-              // color: Colors.pink.withAlpha(50),
-              color: Colors.white54,
-            ),
+            child: Image.asset('assets/icons/search.png', height: 75),
           ),
           SizedBox(height: 24),
           Text(
-            'Search For Books Now',
+            'Search For Books Now.',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 14,
               color: Colors.white54,
               fontWeight: FontWeight.bold,
             ),

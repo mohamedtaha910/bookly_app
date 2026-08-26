@@ -23,10 +23,10 @@ class NoFavourite extends StatelessWidget {
               end: AlignmentGeometry.bottomCenter,
             ),
             border: Border(
-              top: BorderSide(color: Colors.grey.withAlpha(120), width: 0.95),
+              top: BorderSide(color: Colors.grey.withAlpha(120), width: 1.4),
             ),
           ),
-          child: Image.asset('assets/icons/no-education.png', height: 85),
+          child: Image.asset('assets/icons/no-education.png', height: 75),
         ),
         SizedBox(height: 28),
         const Center(

@@ -11,49 +11,44 @@ class CustomErrorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
 
-        children: [
-          Container(
-            padding: EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(100),
-              // color: Colors.white10,
-              gradient: LinearGradient(
-                colors: [
-                  Colors.pink.withAlpha(80),
-                  Colors.pink.withAlpha(40),
-                  Colors.pink.withAlpha(20),
-                ],
-                begin: AlignmentGeometry.topCenter,
-                end: AlignmentGeometry.bottomCenter,
-              ),
-              border: Border(
-                top: BorderSide(color: Colors.pink.withAlpha(120), width: 0.8),
-              ),
+      children: [
+        Container(
+          padding: EdgeInsets.all(16),
+
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(100),
+            // color: Colors.white10,
+            gradient: LinearGradient(
+              colors: [
+                Colors.white.withAlpha(60),
+                Colors.white.withAlpha(40),
+                Colors.white.withAlpha(10),
+              ],
+              begin: AlignmentGeometry.topCenter,
+              end: AlignmentGeometry.bottomCenter,
             ),
-            child: Icon(
-              Icons.error_outline_rounded,
-              size: iconSize,
-              color: Colors.grey.shade400,
+            border: Border(
+              top: BorderSide(color: Colors.grey.withAlpha(120), width: 0.95),
             ),
           ),
-          SizedBox(height: 28),
-          Center(
-            child: Text(
-              errorMessage,
-              style: TextStyle(
-                color: Colors.white54,
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
+          child: Image.asset('assets/icons/error.png', height: iconSize),
+        ),
+        SizedBox(height: 24),
+        Center(
+          child: Text(
+            errorMessage,
+            style: TextStyle(
+              color: Colors.white54,
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
             ),
+            textAlign: TextAlign.center,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

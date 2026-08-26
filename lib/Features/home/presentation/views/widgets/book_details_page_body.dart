@@ -8,7 +8,6 @@ import 'package:bookly_app/core/functions/launch_url.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BookDetailsPageBody extends StatelessWidget {

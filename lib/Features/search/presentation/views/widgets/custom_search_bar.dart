@@ -23,7 +23,7 @@ class CustomSerchBar extends StatelessWidget {
               colors: [
                 Colors.white.withAlpha(40),
                 Colors.white.withAlpha(30),
-                Colors.white.withAlpha(15),
+                Colors.white.withAlpha(20),
               ],
               begin: AlignmentGeometry.topCenter,
               end: AlignmentGeometry.bottomCenter,

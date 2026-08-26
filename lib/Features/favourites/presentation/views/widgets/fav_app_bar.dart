@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:bookly_app/Features/favourites/presentation/view_model/fav_cubit/favourite_cubit.dart';
 import 'package:bookly_app/Features/favourites/presentation/views/widgets/Custom_dialog_button.dart';
 import 'package:bookly_app/constant.dart';
@@ -59,80 +61,99 @@ class FavouriteAppBar extends StatelessWidget {
       context: context,
       builder: (context) {
         return AlertDialog(
-          backgroundColor: kPrimaryColor,
-          contentPadding: EdgeInsets.symmetric(vertical: 24, horizontal: 36),
+          // backgroundColor: kPrimaryColor.withAlpha(100),
+          backgroundColor: Colors.black.withAlpha(150),
+          // constraints: BoxConstraints(
+          //   maxHeight: MediaQuery.of(context).size.height,
+          //   maxWidth: MediaQuery.of(context).size.width,
+          //   minWidth: MediaQuery.of(context).size.width,
+          // ),
+          contentPadding: EdgeInsets.all(0),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(24),
-            // side: BorderSide(
-            //   color: Colors.grey.shade200.withAlpha(150),
-            //   width: 0.1,
-            // ),
+            borderRadius: BorderRadius.circular(22),
+            side: BorderSide(
+              color: Colors.grey.shade200.withAlpha(25),
+              width: 0.4,
+            ),
           ),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  // color: Colors.white10,
-                  gradient: LinearGradient(
-                    colors: [
-                      Colors.pink.withAlpha(100),
-                      Colors.pink.withAlpha(50),
-                      Colors.pink.withAlpha(30),
-                    ],
-                    begin: AlignmentGeometry.topCenter,
-                    end: AlignmentGeometry.bottomCenter,
-                  ),
-                  border: Border(
-                    top: BorderSide(
-                      color: Colors.pink.withAlpha(120),
-                      width: 0.8,
+          content: ClipRRect(
+            borderRadius: BorderRadius.circular(22),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
+
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 24, horizontal: 24),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        // color: Colors.white10,
+                        gradient: LinearGradient(
+                          colors: [
+                            Colors.pink.withAlpha(100),
+                            Colors.pink.withAlpha(50),
+                            Colors.pink.withAlpha(30),
+                          ],
+                          begin: AlignmentGeometry.topCenter,
+                          end: AlignmentGeometry.bottomCenter,
+                        ),
+                        border: Border(
+                          top: BorderSide(
+                            color: Colors.pink.withAlpha(120),
+                            width: 0.8,
+                          ),
+                        ),
+                      ),
+                      child: Icon(Icons.delete_sweep_rounded, size: 36),
                     ),
-                  ),
+                    SizedBox(height: 24),
+                    Text(
+                      'Are you sure you want to clear all your favourites? ',
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 24),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        CustomDialogButton(
+                          onPressed: () {
+                            GoRouter.of(context).pop();
+                          },
+                          verticalPadding: 2,
+                          horizintalPadding: 24,
+                          text: 'Cancel',
+                          buttonColor: Colors.white.withAlpha(10),
+                          textColor: Colors.white,
+                          isBorder: true,
+                        ),
+                        CustomDialogButton(
+                          onPressed: () {
+                            BlocProvider.of<FavouriteCubit>(
+                              context,
+                            ).clearFavourites();
+                            BlocProvider.of<FavouriteCubit>(context).books = [];
+                            GoRouter.of(context).pop();
+                          },
+                          verticalPadding: 2,
+                          horizintalPadding: 24,
+                          text: 'Delete',
+                          buttonColor: Colors.pink,
+                          textColor: Colors.white,
+                          isBorder: true,
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                child: Icon(Icons.delete_sweep_rounded, size: 36),
               ),
-              SizedBox(height: 24),
-              Text(
-                'Are you sure you want to clear all your favourites? ',
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 24),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CustomDialogButton(
-                    onPressed: () {
-                      GoRouter.of(context).pop();
-                    },
-                    verticalPadding: 2,
-                    horizintalPadding: 24,
-                    text: 'Cancel',
-                    buttonColor: Colors.white.withAlpha(10),
-                    textColor: Colors.white,
-                    isBorder: true,
-                  ),
-                  CustomDialogButton(
-                    onPressed: () {
-                      BlocProvider.of<FavouriteCubit>(
-                        context,
-                      ).clearFavourites();
-                      BlocProvider.of<FavouriteCubit>(context).books = [];
-                      GoRouter.of(context).pop();
-                    },
-                    verticalPadding: 2,
-                    horizintalPadding: 24,
-                    text: 'Delete',
-                    buttonColor: Colors.pink,
-                    textColor: Colors.white,
-                    isBorder: true,
-                  ),
-                ],
-              ),
-            ],
+            ),
           ),
         );
       },

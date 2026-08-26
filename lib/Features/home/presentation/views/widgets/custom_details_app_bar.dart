@@ -84,10 +84,15 @@ class CustomDetailsAppBar extends StatelessWidget {
                         BlocProvider.of<FavouriteCubit>(
                           context,
                         ).isFavourite(book.id)
-                        ? Icon(Icons.bookmark_added_rounded, color: Colors.red)
-                        : Icon(
-                            Icons.bookmark_add_rounded,
-                            color: kSecondaryColor,
+                        ? Image.asset(
+                            'assets/icons/bookmark_fill.png',
+                            height: 22,
+                            color: Colors.red,
+                          )
+                        : Image.asset(
+                            'assets/icons/bookmark_fill.png',
+                            height: 22,
+                            color: Colors.white,
                           ),
                   );
                 },
