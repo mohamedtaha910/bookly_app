@@ -203,9 +203,8 @@ While building this project, I practiced and improved my understanding of:
 
 Flutter Developer
 
-* GitHub: <YOUR_GITHUB_LINK>
-* LinkedIn: <YOUR_LINKEDIN_LINK>
-* Portfolio: <YOUR_PORTFOLIO_LINK>
+* LinkedIn: <https://www.linkedin.com/in/mohamed-taha164/>
+* Portfolio: <https://muhamedtaha-dev.vercel.app/>
 
 ---
 
