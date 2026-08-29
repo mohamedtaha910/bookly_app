@@ -15,12 +15,12 @@ class CustomBookCover extends StatelessWidget {
           margin: EdgeInsetsDirectional.only(end: 16),
           decoration: BoxDecoration(
             image: DecorationImage(
+              onError: (exception, stackTrace) {
+                Icon(Icons.image_not_supported_rounded);
+              },
               fit: BoxFit.fill,
               // image: AssetImage('assets/photo/cover3.webp'),
-              image: NetworkImage(
-                imageUrl ,
-                
-              ),
+              image: NetworkImage(imageUrl),
             ),
             border: Border.all(width: 2, color: Colors.white10),
             borderRadius: BorderRadius.circular(16),

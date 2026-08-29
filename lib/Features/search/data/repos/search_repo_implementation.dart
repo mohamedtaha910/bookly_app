@@ -16,7 +16,7 @@ class SearchRepoImplementation implements SearchRepo {
     try {
       var data = await apiService.get(
         endPoint:
-            'volumes?key=AIzaSyAdzsxBmUBt1NSxx8nrztWJ6CLWVX3Jai4&Filtering=free-ebooks&Sorting=newest&q=$searchQuery',
+            'volumes?key=${apiService.apiKey}&Filtering=free-ebooks&Sorting=newest&q=$searchQuery',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {

@@ -72,12 +72,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: kPrimaryColor,
 
-          // appBarTheme: const AppBarTheme(
-          //   systemOverlayStyle: SystemUiOverlayStyle(
-          //     statusBarColor: kPrimaryColor,
-          //     statusBarIconBrightness: Brightness.dark,
-          //   ),
-          // ),
           textTheme: GoogleFonts.montserratTextTheme(
             ThemeData.dark().textTheme,
           ),

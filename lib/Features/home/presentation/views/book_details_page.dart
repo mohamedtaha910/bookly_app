@@ -24,7 +24,10 @@ class _BookDetailsPageState extends State<BookDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: BookDetailsPageBody(book: widget.book)),
+      body: SafeArea(
+        bottom: false,
+        child: BookDetailsPageBody(book: widget.book),
+      ),
     );
   }
 }

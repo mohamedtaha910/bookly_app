@@ -24,7 +24,7 @@ class BookDetailsPageBody extends StatelessWidget {
         child: Column(
           children: [
             CustomDetailsAppBar(book: book),
-            SizedBox(height: 16),
+            // SizedBox(height: 2),
             CustomBookCover(
               imageUrl:
                   book.volumeInfo.imageLinks?.thumbnail ??

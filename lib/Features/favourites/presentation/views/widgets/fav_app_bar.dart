@@ -61,8 +61,8 @@ class FavouriteAppBar extends StatelessWidget {
       context: context,
       builder: (context) {
         return AlertDialog(
-          // backgroundColor: kPrimaryColor.withAlpha(100),
-          backgroundColor: Colors.black.withAlpha(150),
+          backgroundColor: kPrimaryColor.withAlpha(100),
+          // backgroundColor: const Color.fromARGB(255, 15, 0, 25).withAlpha(150),
           // constraints: BoxConstraints(
           //   maxHeight: MediaQuery.of(context).size.height,
           //   maxWidth: MediaQuery.of(context).size.width,
