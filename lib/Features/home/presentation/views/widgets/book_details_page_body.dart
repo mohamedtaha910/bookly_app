@@ -23,7 +23,7 @@ class BookDetailsPageBody extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            CustomDetailsAppBar(book: book,),
+            CustomDetailsAppBar(book: book),
             SizedBox(height: 16),
             CustomBookCover(
               imageUrl:
@@ -52,13 +52,14 @@ class BookDetailsPageBody extends StatelessWidget {
             SizedBox(height: 16),
             Wrap(
               // mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.end,
               alignment: WrapAlignment.center,
               runSpacing: 10,
               children: [
                 Container(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 4,
+                    horizontal: 12,
+                    vertical: 2.7,
                   ),
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -71,7 +72,7 @@ class BookDetailsPageBody extends StatelessWidget {
                       end: AlignmentGeometry.bottomCenter,
                     ),
 
-                    borderRadius: BorderRadius.circular(100),
+                    borderRadius: BorderRadius.circular(200),
                     border: Border(
                       top: BorderSide(
                         color: Colors.pink.withAlpha(50),
@@ -103,9 +104,15 @@ class BookDetailsPageBody extends StatelessWidget {
                 ),
 
                 SizedBox(width: 12),
-                RatingBadge(rating: 4.5),
+                RatingBadge(rating: 4.5, textSize: 13, iconSize: 14),
                 SizedBox(width: 6),
-                Text('(2390)', style: Styles.textStyle14),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 0,
+                    vertical: 3,
+                  ),
+                  child: Text('(2390)', style: Styles.textStyle14),
+                ),
               ],
             ),
             SizedBox(height: 24),

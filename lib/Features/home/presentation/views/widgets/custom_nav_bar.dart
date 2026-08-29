@@ -69,7 +69,7 @@ class _GlassNavBar extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(50),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 8),
+        filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 0, vertical: 6),
           // height: 62,
@@ -80,9 +80,12 @@ class _GlassNavBar extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                kPrimaryColor.withOpacity(0.30),
-                kPrimaryColor.withOpacity(0.20),
-                kPrimaryColor.withOpacity(0.18),
+                // kPrimaryColor.withOpacity(0.30),
+                // kPrimaryColor.withOpacity(0.20),
+                // kPrimaryColor.withOpacity(0.18),
+                Colors.white.withAlpha(10),
+                Colors.white.withAlpha(5),
+                Colors.white.withAlpha(0),
               ],
               stops: const [0.0, 0.5, 1.0],
             ),

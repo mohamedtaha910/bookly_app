@@ -38,6 +38,9 @@ class BookItem extends StatelessWidget {
                   bookModel.volumeInfo.imageLinks?.thumbnail ??
                       'https://www.cineciutat.org/storage/app/uploads/public/68a/f96/5dc/68af965dc2d09472226121.jpg',
                 ),
+                onError: (exception, stackTrace) {
+                  Icon(Icons.image_not_supported_rounded);
+                },
               ),
               borderRadius: BorderRadius.circular(6),
 
@@ -75,13 +78,20 @@ class BookItem extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     // SizedBox(width: 4),
                     PriceBadge(price: 'Free'),
                     Spacer(),
                     RatingBadge(rating: 3.7),
                     SizedBox(width: 5),
-                    Text('( 2242 )', style: Styles.textStyle14),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 0,
+                        vertical: 2,
+                      ),
+                      child: Text('( 2242 )', style: Styles.textStyle14),
+                    ),
                   ],
                 ),
               ],
@@ -137,8 +147,15 @@ class PriceBadge extends StatelessWidget {
 }
 
 class RatingBadge extends StatelessWidget {
-  const RatingBadge({super.key, required this.rating});
+  const RatingBadge({
+    super.key,
+    required this.rating,
+    this.textSize = 12,
+    this.iconSize = 13,
+  });
   final double rating;
+  final double textSize;
+  final double iconSize;
 
   @override
   Widget build(BuildContext context) {
@@ -163,12 +180,16 @@ class RatingBadge extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          FaIcon(FontAwesomeIcons.solidStar, color: Colors.amber, size: 13),
+          FaIcon(
+            FontAwesomeIcons.solidStar,
+            color: Colors.amber,
+            size: iconSize,
+          ),
           SizedBox(width: 6),
           Text(
             rating.toString(),
             style: Styles.textStyle14.copyWith(
-              fontSize: 12,
+              fontSize: textSize,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
