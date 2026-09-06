@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:bookly_app/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class LiquidGlassNavBar extends StatelessWidget {
   final int currentIndex;
@@ -21,7 +22,7 @@ class LiquidGlassNavBar extends StatelessWidget {
       right: 0,
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32),
+          padding: const EdgeInsets.symmetric(horizontal: 40),
           child: _GlassNavBar(
             currentIndex: currentIndex,
             onDestinationSelected: onDestinationSelected,
@@ -43,18 +44,18 @@ class _GlassNavBar extends StatelessWidget {
 
   static const _items = [
     _NavItem(
-      icon: 'assets/icons/Home.svg',
-      selectedIcon: 'assets/icons/home_selected.svg',
+      icon: Iconsax.book_copy,
+      selectedIcon: Iconsax.book,
       label: 'Home',
     ),
     _NavItem(
-      icon: 'assets/icons/Search.svg',
-      selectedIcon: 'assets/icons/Search.svg',
+      icon: Iconsax.search_normal_copy,
+      selectedIcon: Iconsax.search_normal,
       label: 'Search',
     ),
     _NavItem(
-      icon: 'assets/icons/Bookmark.svg',
-      selectedIcon: 'assets/icons/Bookmark.svg', // uses Material icon
+      icon: Iconsax.bookmark_copy,
+      selectedIcon: Iconsax.bookmark,
       label: 'Favourites',
     ),
     // _NavItem(
@@ -69,7 +70,7 @@ class _GlassNavBar extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(50),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+        filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 0, vertical: 6),
           // height: 62,
@@ -80,26 +81,26 @@ class _GlassNavBar extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                kPrimaryColor.withAlpha(10),
-                kPrimaryColor.withAlpha(5),
-                kPrimaryColor.withAlpha(0),
-                // Colors.white.withAlpha(10),
-                // Colors.white.withAlpha(5),
-                // Colors.white.withAlpha(0),
+                // kPrimaryColor.withAlpha(10),
+                // kPrimaryColor.withAlpha(5),
+                // kPrimaryColor.withAlpha(0),
+                Colors.white.withAlpha(10),
+                Colors.white.withAlpha(5),
+                Colors.white.withAlpha(0),
               ],
               stops: const [0.0, 0.5, 1.0],
             ),
             border: Border(
               top: BorderSide(
-                color: Colors.grey.shade200.withAlpha(40),
+                color: Colors.grey.shade200.withAlpha(25),
                 width: 1.2,
               ),
               right: BorderSide(
-                color: Colors.grey.shade200.withAlpha(40),
+                color: Colors.grey.shade200.withAlpha(25),
                 width: 0.4,
               ),
               left: BorderSide(
-                color: Colors.grey.shade200.withAlpha(40),
+                color: Colors.grey.shade200.withAlpha(25),
                 width: 0.4,
               ),
               // bottom: BorderSide(
@@ -114,7 +115,7 @@ class _GlassNavBar extends StatelessWidget {
               //   offset: const Offset(0, 8),
               // ),
               BoxShadow(
-                color: Colors.white.withOpacity(0.1),
+                color: Colors.white.withAlpha(8),
                 blurRadius: 1,
                 offset: const Offset(0, -1),
               ),
@@ -157,7 +158,7 @@ class _GlassNavItem extends StatelessWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 250),
         curve: Curves.easeOutCubic,
-        padding: const EdgeInsets.symmetric(horizontal: 34, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 10),
         decoration: isSelected
             ? BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
@@ -190,44 +191,41 @@ class _GlassNavItem extends StatelessWidget {
 
   Widget _buildIcon() {
     // Special case: Favourites uses a Material icon when selected
-    if (item.selectedIcon == null) {
-      return isSelected
-          ? Icon(Icons.favorite, color: Colors.white, size: 24)
-          : SvgPicture.asset(
-              item.icon,
-              height: 24,
-              colorFilter: const ColorFilter.mode(
-                Colors.white54,
-                BlendMode.srcIn,
-              ),
-            );
-    }
+    // if (item.selectedIcon == null) {
+    //   return isSelected
+    //       ? Icon(Icons.favorite, color: Colors.white, size: 24)
+    //       : SvgPicture.asset(
+    //           item.icon,
+    //           height: 12,
+    //           colorFilter: const ColorFilter.mode(
+    //             Colors.white54,
+    //             BlendMode.srcIn,
+    //           ),
+    //         );
+    // }
 
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 200),
       child: isSelected
-          ? SvgPicture.asset(
-              item.selectedIcon!,
+          ? Icon(
+              item.selectedIcon,
               key: ValueKey('selected_${item.label}'),
-              height: 24,
-              colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
+              color: Colors.white,
+              size: 24,
             )
-          : SvgPicture.asset(
+          : Icon(
               item.icon,
               key: ValueKey('unselected_${item.label}'),
-              height: 24,
-              colorFilter: const ColorFilter.mode(
-                Colors.white54,
-                BlendMode.srcIn,
-              ),
+              color: Colors.white54,
+              size: 24,
             ),
     );
   }
 }
 
 class _NavItem {
-  final String icon;
-  final String? selectedIcon;
+  final IconData icon;
+  final IconData selectedIcon;
   final String label;
 
   const _NavItem({

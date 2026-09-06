@@ -4,6 +4,7 @@ import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class CustomSerchBar extends StatelessWidget {
   const CustomSerchBar({super.key, this.onChanged});
@@ -42,9 +43,9 @@ class CustomSerchBar extends StatelessWidget {
               // fillColor: Colors.black26,
               prefixIcon: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 0),
-                child: SvgPicture.asset(
-                  AssetsPath.serach,
-                  height: 22,
+                child: Icon(
+                  Iconsax.search_normal_copy,
+                  size: 24,
                   color: Colors.white54,
                 ),
               ),

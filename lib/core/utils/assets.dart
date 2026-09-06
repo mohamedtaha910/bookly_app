@@ -4,7 +4,4 @@ class AssetsPath {
   static const String books = 'assets/icons/icon.svg';
   static const String bookOpen = 'assets/icons/Vector.svg';
   static const String serach = 'assets/icons/Search.svg';
-  
-
-
 }

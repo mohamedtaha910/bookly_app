@@ -1,6 +1,7 @@
 import 'package:bookly_app/Features/favourites/presentation/views/favourite_page.dart';
 import 'package:bookly_app/Features/home/presentation/views/home_page.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_nav_bar.dart';
+import 'package:bookly_app/Features/home/presentation/views/widgets/shadow.dart';
 import 'package:bookly_app/Features/search/data/repos/search_repo_implementation.dart';
 import 'package:bookly_app/Features/search/presentation/view_model/search_books_cubit.dart';
 import 'package:bookly_app/Features/search/presentation/views/search_page.dart';
@@ -37,28 +38,7 @@ class _AppRootState extends State<AppRoot> {
           pages[currentIndex],
 
           //  shadow
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-
-            child: Container(
-              height: 45,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  colors: [
-                    kPrimaryColor,
-                    kPrimaryColor.withAlpha(50),
-                    kPrimaryColor.withAlpha(10),
-
-                    // Colors.transparent
-                  ],
-                ),
-              ),
-            ),
-          ),
+          CustomShadow(),
 
           LiquidGlassNavBar(
             currentIndex: currentIndex,

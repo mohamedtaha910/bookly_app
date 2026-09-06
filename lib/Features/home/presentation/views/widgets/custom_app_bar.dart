@@ -1,10 +1,9 @@
-
-
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});
@@ -54,7 +53,7 @@ class CustomAppBar extends StatelessWidget {
                   ),
                 ),
               ),
-              child: SvgPicture.asset(AssetsPath.serach, height: 26),
+              child: Icon(Iconsax.search_normal_copy, size: 24),
             ),
           ),
         ],

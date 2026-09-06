@@ -1,10 +1,9 @@
 import 'package:bookly_app/Features/favourites/presentation/view_model/fav_cubit/favourite_cubit.dart';
-import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/models/book_model/book_model.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class CustomDetailsAppBar extends StatelessWidget {
   const CustomDetailsAppBar({super.key, required this.book});
@@ -84,16 +83,8 @@ class CustomDetailsAppBar extends StatelessWidget {
                         BlocProvider.of<FavouriteCubit>(
                           context,
                         ).isFavourite(book.id)
-                        ? Image.asset(
-                            'assets/icons/bookmark_fill.png',
-                            height: 22,
-                            color: Colors.red,
-                          )
-                        : Image.asset(
-                            'assets/icons/bookmark_fill.png',
-                            height: 22,
-                            color: Colors.white,
-                          ),
+                        ? Icon(Iconsax.archive_1, size: 24, color: Colors.red)
+                        : Icon(Iconsax.archive_1, size: 24),
                   );
                 },
               ),
