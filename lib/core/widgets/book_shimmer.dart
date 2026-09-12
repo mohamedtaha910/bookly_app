@@ -69,8 +69,8 @@ class BookShimmer extends StatelessWidget {
                   children: [
                     // SizedBox(width: 4),
                     Container(
-                      height: 22,
-                      width: 65,
+                      height: 20,
+                      width: 70,
                       decoration: BoxDecoration(
                         color: Colors.black,
                         borderRadius: BorderRadius.circular(100),
@@ -78,8 +78,8 @@ class BookShimmer extends StatelessWidget {
                     ),
                     Spacer(),
                     Container(
-                      height: 22,
-                      width: 65,
+                      height: 20,
+                      width: 70,
                       decoration: BoxDecoration(
                         color: Colors.black,
                         borderRadius: BorderRadius.circular(100),

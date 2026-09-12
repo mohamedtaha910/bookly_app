@@ -2,7 +2,7 @@ import 'package:bookly_app/Features/home/presentation/view_model/best_seller_cub
 import 'package:bookly_app/Features/home/presentation/views/widgets/best_seller_list.dart';
 // import 'package:bookly_app/Features/home/presentation/views/widgets/book_item.dart';
 import 'package:bookly_app/core/models/book_model/book_model.dart';
-import 'package:bookly_app/core/widgets/book_shimmer.dart';
+// import 'package:bookly_app/core/widgets/book_shimmer.dart';
 import 'package:bookly_app/core/widgets/books_shimmer_list.dart';
 import 'package:bookly_app/core/widgets/custom_error_widget.dart';
 // import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';

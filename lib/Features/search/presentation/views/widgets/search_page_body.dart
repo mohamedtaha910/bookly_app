@@ -6,6 +6,7 @@ import 'package:bookly_app/Features/search/presentation/views/widgets/searched_b
 import 'package:bookly_app/Features/search/presentation/views/widgets/start_search.dart';
 import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/models/book_model/book_model.dart';
+import 'package:bookly_app/core/widgets/books_shimmer_list.dart';
 import 'package:bookly_app/core/widgets/custom_error_widget.dart';
 import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
@@ -139,10 +140,14 @@ class SearchPageBody extends StatelessWidget {
                   );
                 }
                 if (state is SearchBooksLoading) {
-                  return const CustomLoadingIndicator(
-                    paddingValue: 36,
-                    height: 25,
-                    width: 25,
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: SingleChildScrollView(
+                      physics: BouncingScrollPhysics(),
+                      child: Column(
+                        children: [SizedBox(height: 130), BooksShimmerList()],
+                      ),
+                    ),
                   );
                 } else {
                   return const SizedBox.shrink();

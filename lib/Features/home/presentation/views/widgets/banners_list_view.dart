@@ -1,8 +1,9 @@
+import 'package:bookly_app/Features/home/presentation/views/widgets/banner_list_shimmer.dart';
 import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/view_model/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/Banner_item.dart';
 import 'package:bookly_app/core/widgets/custom_error_widget.dart';
-import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
+// import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,11 +61,7 @@ class BannersListView extends StatelessWidget {
             ),
           );
         } else {
-          return CustomLoadingIndicator(
-            paddingValue: 36,
-            height: 25,
-            width: 25,
-          );
+          return BannerListShimmer();
         }
       },
     );
