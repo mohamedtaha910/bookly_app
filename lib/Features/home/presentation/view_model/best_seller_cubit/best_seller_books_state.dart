@@ -20,3 +20,15 @@ class BestSellerBooksError extends BestSellerBooksState {
   final String errorMessage;
   const BestSellerBooksError(this.errorMessage);
 }
+// pagination states :
+
+class BestSellerBooksPaginationLoading extends BestSellerBooksState {
+  final List<BookModel> prevBooks;
+
+ const BestSellerBooksPaginationLoading({required this.prevBooks});
+}
+
+class BestSellerBooksPaginationFailure extends BestSellerBooksState {
+  final String errorMessage;
+  const BestSellerBooksPaginationFailure(this.errorMessage);
+}

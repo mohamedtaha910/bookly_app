@@ -9,14 +9,25 @@ class BestSellerBooksCubit extends Cubit<BestSellerBooksState> {
   BestSellerBooksCubit(this.homeRepo) : super(BestSellerBooksInitial());
   final HomeRepo homeRepo;
 
-  Future<void> fetchBestSellerBooks() async {
-    emit(BestSellerBooksLoading());
-    var result = await homeRepo.fetchBestSellerBooks();
+  List<BookModel> books = [];
+
+  Future<void> fetchBestSellerBooks({int pageNum = 0}) async {
+    if (pageNum == 0) {
+      emit(BestSellerBooksLoading());
+    } else {
+      emit(BestSellerBooksPaginationLoading(prevBooks: books));
+    }
+    var result = await homeRepo.fetchBestSellerBooks(pageNum: pageNum);
     result.fold(
       (failure) {
-        emit(BestSellerBooksError(failure.errorMessage));
+        if (pageNum == 0) {
+          emit(BestSellerBooksError(failure.errorMessage));
+        } else {
+          emit(BestSellerBooksPaginationFailure(failure.errorMessage));
+        }
       },
-      (books) {
+      (booksList) {
+        books.addAll(booksList);
         emit(BestSellerBooksSuccess(books));
       },
     );

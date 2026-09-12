@@ -17,6 +17,7 @@ import 'package:bookly_app/core/models/book_model/search_info.dart';
 import 'package:bookly_app/core/models/book_model/volume_info.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/service_locator.dart';
+import 'package:bookly_app/core/utils/simple_bloc_observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -39,6 +40,8 @@ void main() async {
 
   await Hive.openBox<BookModel>(kBooksBox);
   setUpServiceLocator();
+  Bloc.observer = SimpleBlocObserver();
+
   runApp(const MyApp());
 }
 

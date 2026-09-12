@@ -23,7 +23,7 @@ class LiquidGlassNavBar extends StatelessWidget {
       right: 0,
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 46),
+          padding: const EdgeInsets.symmetric(horizontal: 48),
           child: _GlassNavBar(
             currentIndex: currentIndex,
             onDestinationSelected: onDestinationSelected,
@@ -88,7 +88,7 @@ class _GlassNavBar extends StatelessWidget {
             ),
             border: Border(
               top: BorderSide(
-                color: Colors.grey.shade200.withAlpha(25),
+                color: Colors.grey.shade100.withAlpha(20),
                 width: 1.2,
               ),
               // right: BorderSide(
@@ -100,7 +100,7 @@ class _GlassNavBar extends StatelessWidget {
               //   width: 0.4,
               // ),
               bottom: BorderSide(
-                color: Colors.grey.shade200.withAlpha(25),
+                color: Colors.grey.shade100.withAlpha(20),
                 width: 1.2,
               ),
             ),

@@ -1,3 +1,4 @@
+import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 // import 'package:movies_app/constant.dart';
@@ -10,7 +11,8 @@ class BookShimmer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
       baseColor: Colors.black,
-      highlightColor: Colors.indigo.withAlpha(50),
+      // highlightColor: Colors.indigo.withAlpha(50),
+      highlightColor: kPrimaryColor,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         // mainAxisAlignment: MainAxisAlignment.start,
@@ -44,7 +46,7 @@ class BookShimmer extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 4),
+                SizedBox(height: 8),
                 Container(
                   height: 16,
                   width: 150,

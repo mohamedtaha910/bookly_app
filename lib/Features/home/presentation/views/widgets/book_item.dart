@@ -29,7 +29,7 @@ class BookItem extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border.all(
                 width: 0.6,
-                color: Colors.white38.withAlpha(50),
+                color: Colors.grey.shade50.withAlpha(80),
               ),
               image: DecorationImage(
                 fit: BoxFit.fill,
@@ -48,7 +48,7 @@ class BookItem extends StatelessWidget {
                 BoxShadow(
                   color: kShadowColor,
                   offset: Offset(0, 1),
-                  blurRadius: 6,
+                  blurRadius: 1,
                 ),
               ],
             ),

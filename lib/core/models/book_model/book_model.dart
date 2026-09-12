@@ -38,7 +38,7 @@ class BookModel {
 		this.id, 
 		this.etag, 
 		this.selfLink, 
-		required this.volumeInfo, 
+		required this.volumeInfo,
 		this.saleInfo, 
 		this.accessInfo, 
 		this.searchInfo, 

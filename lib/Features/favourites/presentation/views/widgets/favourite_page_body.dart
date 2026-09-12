@@ -1,6 +1,7 @@
 import 'package:bookly_app/Features/favourites/presentation/view_model/fav_cubit/favourite_cubit.dart';
 import 'package:bookly_app/Features/favourites/presentation/views/widgets/no_favourite.dart';
-import 'package:bookly_app/Features/search/presentation/views/widgets/searched_books_list_view.dart';
+import 'package:bookly_app/core/widgets/books_list.dart';
+// import 'package:bookly_app/Features/search/presentation/views/widgets/searched_books_list_view.dart';
 import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
@@ -27,12 +28,13 @@ class FavouritePageBody extends StatelessWidget {
               scrollDirection: Axis.vertical,
               child: Column(
                 children: [
-                  SizedBox(height: 28),
+                  SizedBox(height: 110),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: SearchedBookListView(books: books),
+                    // child: SearchedBookListView(books: books),
+                    child: BooksListView(books: books),
                   ),
-                  SizedBox(height: 60),
+                  SizedBox(height: 0),
                 ],
               ),
             ),

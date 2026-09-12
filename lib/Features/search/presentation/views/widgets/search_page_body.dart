@@ -1,8 +1,9 @@
 import 'dart:ui';
 
+import 'package:bookly_app/core/widgets/books_list.dart';
 import 'package:bookly_app/Features/search/presentation/view_model/search_books_cubit.dart';
 import 'package:bookly_app/Features/search/presentation/views/widgets/custom_search_bar.dart';
-import 'package:bookly_app/Features/search/presentation/views/widgets/searched_books_list_view.dart';
+// import 'package:bookly_app/Features/search/presentation/views/widgets/searched_books_list_view.dart';
 import 'package:bookly_app/Features/search/presentation/views/widgets/start_search.dart';
 import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/models/book_model/book_model.dart';
@@ -127,12 +128,13 @@ class SearchPageBody extends StatelessWidget {
                       scrollDirection: Axis.vertical,
                       child: Column(
                         children: [
-                          SizedBox(height: 36),
+                          SizedBox(height: 130),
                           Padding(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 8.0,
                             ),
-                            child: SearchedBookListView(books: books),
+                            // child: SearchedBookListView(books: books),
+                            child: BooksListView(books: books),
                           ),
                         ],
                       ),

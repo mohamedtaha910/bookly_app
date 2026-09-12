@@ -1,3 +1,4 @@
+import 'package:bookly_app/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -8,7 +9,8 @@ class BannerShimmer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
       baseColor: Colors.black,
-      highlightColor: Colors.indigo.withAlpha(50),
+      // highlightColor: Colors.indigo.withAlpha(50),
+      highlightColor: kPrimaryColor,
       child: AspectRatio(
         aspectRatio: 0.7,
         child: Container(
