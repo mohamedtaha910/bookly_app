@@ -1,7 +1,8 @@
 import 'dart:ui';
+// import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/constant.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class LiquidGlassNavBar extends StatelessWidget {
@@ -22,7 +23,7 @@ class LiquidGlassNavBar extends StatelessWidget {
       right: 0,
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
+          padding: const EdgeInsets.symmetric(horizontal: 46),
           child: _GlassNavBar(
             currentIndex: currentIndex,
             onDestinationSelected: onDestinationSelected,
@@ -58,11 +59,6 @@ class _GlassNavBar extends StatelessWidget {
       selectedIcon: Iconsax.bookmark,
       label: 'Favourites',
     ),
-    // _NavItem(
-    //   icon: 'assets/icons/Profile.svg',
-    //   selectedIcon: 'assets/icons/Profile_selected.svg',
-    //   label: 'Profile',
-    // ),
   ];
 
   @override
@@ -70,7 +66,7 @@ class _GlassNavBar extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(50),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+        filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 0, vertical: 6),
           // height: 62,
@@ -81,12 +77,12 @@ class _GlassNavBar extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                // kPrimaryColor.withAlpha(10),
+                // kPrimaryColor.withAlpha(100),
                 // kPrimaryColor.withAlpha(5),
                 // kPrimaryColor.withAlpha(0),
+                Colors.white.withAlpha(20),
+                Colors.white.withAlpha(15),
                 Colors.white.withAlpha(10),
-                Colors.white.withAlpha(5),
-                Colors.white.withAlpha(0),
               ],
               stops: const [0.0, 0.5, 1.0],
             ),
@@ -95,18 +91,18 @@ class _GlassNavBar extends StatelessWidget {
                 color: Colors.grey.shade200.withAlpha(25),
                 width: 1.2,
               ),
-              right: BorderSide(
-                color: Colors.grey.shade200.withAlpha(25),
-                width: 0.4,
-              ),
-              left: BorderSide(
-                color: Colors.grey.shade200.withAlpha(25),
-                width: 0.4,
-              ),
-              // bottom: BorderSide(
-              //   color: Colors.grey.shade200.withAlpha(50),
-              //   width: 0.1,
+              // right: BorderSide(
+              //   color: Colors.grey.shade200.withAlpha(25),
+              //   width: 0.4,
               // ),
+              // left: BorderSide(
+              //   color: Colors.grey.shade200.withAlpha(25),
+              //   width: 0.4,
+              // ),
+              bottom: BorderSide(
+                color: Colors.grey.shade200.withAlpha(25),
+                width: 1.2,
+              ),
             ),
             boxShadow: [
               // BoxShadow(
@@ -114,11 +110,11 @@ class _GlassNavBar extends StatelessWidget {
               //   blurRadius: 24,
               //   offset: const Offset(0, 8),
               // ),
-              BoxShadow(
-                color: Colors.white.withAlpha(8),
-                blurRadius: 1,
-                offset: const Offset(0, -1),
-              ),
+              // BoxShadow(
+              //   color: Colors.white.withAlpha(8),
+              //   blurRadius: 1,
+              //   offset: const Offset(0, -1),
+              // ),
             ],
           ),
           child: Row(
@@ -158,7 +154,7 @@ class _GlassNavItem extends StatelessWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 250),
         curve: Curves.easeOutCubic,
-        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 10),
         decoration: isSelected
             ? BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
@@ -167,8 +163,8 @@ class _GlassNavItem extends StatelessWidget {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    Colors.white.withOpacity(0.20),
-                    Colors.white.withOpacity(0.1),
+                    Colors.white.withAlpha(50),
+                    Colors.white.withAlpha(25),
                   ],
                 ),
                 // border: Border.all(
