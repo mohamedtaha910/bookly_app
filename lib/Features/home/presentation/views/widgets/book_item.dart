@@ -44,13 +44,13 @@ class BookItem extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(6),
 
-              boxShadow: [
-                BoxShadow(
-                  color: kShadowColor,
-                  offset: Offset(0, 1),
-                  blurRadius: 1,
-                ),
-              ],
+              // boxShadow: [
+              //   BoxShadow(
+              //     color: kShadowColor,
+              //     offset: Offset(0, 1),
+              //     blurRadius: 1,
+              //   ),
+              // ],
             ),
           ),
           SizedBox(width: 24),

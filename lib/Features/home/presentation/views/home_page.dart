@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
 
       // backgroundColor: kPrimaryColor,
       body: SafeArea(
-        top: false,
+        // top: false,
         bottom: false,
         child: Stack(
           clipBehavior: Clip.none,
@@ -29,15 +29,16 @@ class HomePage extends StatelessWidget {
               left: 0,
               right: 0,
               child: Container(
-                height: 130,
+                height: 120,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
                       kPrimaryColor,
-                      kPrimaryColor.withAlpha(200),
-                      kPrimaryColor.withAlpha(100),
+                      kPrimaryColor.withAlpha(210),
+                      kPrimaryColor.withAlpha(120),
                       kPrimaryColor.withAlpha(10),
                       kPrimaryColor.withAlpha(0),
+                      // Colors.red,
                     ],
                     begin: AlignmentGeometry.topCenter,
                     end: AlignmentGeometry.bottomCenter,
@@ -46,7 +47,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
 
-            Positioned(top: 34, right: 16, left: 16, child: CustomAppBar()),
+            Positioned(top: 9, right: 16, left: 16, child: CustomAppBar()),
           ],
         ),
       ),

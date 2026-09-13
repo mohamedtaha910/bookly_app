@@ -59,7 +59,7 @@ class _HomePageBodyState extends State<HomePageBody> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 112),
+          SizedBox(height: 88),
           // SizedBox(height: 6),
           BannersListView(),
           SizedBox(height: 24),

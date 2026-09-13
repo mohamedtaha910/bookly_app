@@ -18,7 +18,7 @@ class CustomAppBar extends StatelessWidget {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 25, sigmaY: 15),
         child: Container(
-          padding: EdgeInsets.only(top: 6, bottom: 6, left: 20, right: 8),
+          padding: EdgeInsets.only(top: 5, bottom: 5, left: 20, right: 6),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(100),
             // color: Colors.white10,
@@ -54,12 +54,7 @@ class CustomAppBar extends StatelessWidget {
                   GoRouter.of(context).push(AppRouter.kSearchPage);
                 },
                 child: Container(
-                  padding: const EdgeInsets.only(
-                    right: 10,
-                    left: 10,
-                    top: 10,
-                    bottom: 10,
-                  ),
+                  padding: const EdgeInsets.all(11),
                   // padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
@@ -80,7 +75,7 @@ class CustomAppBar extends StatelessWidget {
                       ),
                     ),
                   ),
-                  child: Icon(Iconsax.search_normal_copy, size: 24),
+                  child: Icon(Iconsax.search_normal_copy, size: 25),
                 ),
               ),
             ],

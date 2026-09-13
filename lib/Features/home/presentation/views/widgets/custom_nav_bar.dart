@@ -23,7 +23,10 @@ class LiquidGlassNavBar extends StatelessWidget {
       right: 0,
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 48),
+          // padding: const EdgeInsets.symmetric(horizontal: 48),
+          padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.13,
+          ),
           child: _GlassNavBar(
             currentIndex: currentIndex,
             onDestinationSelected: onDestinationSelected,

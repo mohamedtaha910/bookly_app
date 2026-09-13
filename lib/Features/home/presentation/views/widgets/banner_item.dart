@@ -25,6 +25,8 @@
 // }
 // ============================================
 // import 'package:bookly_app/constant.dart';
+import 'dart:ui';
+
 import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -50,13 +52,14 @@ class BannerItem extends StatelessWidget {
               aspectRatio: 0.7,
               child: CachedNetworkImage(
                 height: MediaQuery.of(context).size.height * 0.31,
-                width: 130,
+
+                // width: 130,
                 imageUrl:
                     bookModel.volumeInfo.imageLinks?.thumbnail ??
                     'https://www.cineciutat.org/storage/app/uploads/public/68a/f96/5dc/68af965dc2d09472226121.jpg',
                 errorWidget: (context, url, error) => Icon(
                   Icons.image_not_supported_rounded,
-                  size: MediaQuery.of(context).size.height * 0.31,
+                  // size: MediaQuery.of(context).size.height * 0.31,
                 ),
                 fit: BoxFit.fill,
               ),
@@ -64,30 +67,40 @@ class BannerItem extends StatelessWidget {
           ),
           Positioned(
             top: 8,
-            right: 22,
-            child: Container(
-              // margin: EdgeInsetsDirectional.only(end: 16),
-              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              decoration: BoxDecoration(
-                color: Colors.black38,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    rating,
-                    // Random().nextInt(10).toString(),
-                    // Random.secure().nextInt(10).toString(),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
+            right: 16,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(100),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
+                child: Container(
+                  // margin: EdgeInsetsDirectional.only(end: 16),
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withAlpha(90),
+                    borderRadius: BorderRadius.circular(100),
+                    border: Border.all(
+                      color: Colors.grey.shade200.withAlpha(25),
+                      width: 0.8,
                     ),
                   ),
-                  SizedBox(width: 4),
-                  Icon(Icons.star, color: Colors.amber, size: 16),
-                ],
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.star_rounded, color: Colors.amber, size: 16),
+                      SizedBox(width: 4),
+                      Text(
+                        rating,
+                        // Random().nextInt(10).toString(),
+                        // Random.secure().nextInt(10).toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 11,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),
