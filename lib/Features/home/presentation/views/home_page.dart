@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/home_page_body.dart';
+import 'package:bookly_app/Features/home/presentation/views/widgets/shadow.dart';
 import 'package:bookly_app/constant.dart';
 // import 'package:bookly_app/constant.dart';
 import 'package:flutter/material.dart';
@@ -13,25 +14,42 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: PreferredSize(
-        preferredSize: Size(double.infinity, kToolbarHeight),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(0),
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 25, sigmaY: 10),
-            child: AppBar(
-              elevation: 0,
-              // foregroundColor: Colors.transparent,
-              surfaceTintColor: Colors.transparent,
-              backgroundColor: kPrimaryColor.withAlpha(200),
-              title: CustomAppBar(),
-              // toolbarHeight: 65,
+
+      // backgroundColor: kPrimaryColor,
+      body: SafeArea(
+        top: false,
+        bottom: false,
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            HomePageBody(),
+            // shadow
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                height: 130,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      kPrimaryColor,
+                      kPrimaryColor.withAlpha(200),
+                      kPrimaryColor.withAlpha(100),
+                      kPrimaryColor.withAlpha(10),
+                      kPrimaryColor.withAlpha(0),
+                    ],
+                    begin: AlignmentGeometry.topCenter,
+                    end: AlignmentGeometry.bottomCenter,
+                  ),
+                ),
+              ),
             ),
-          ),
+
+            Positioned(top: 34, right: 16, left: 16, child: CustomAppBar()),
+          ],
         ),
       ),
-      // backgroundColor: kPrimaryColor,
-      body: SafeArea(top: false, bottom: false, child: HomePageBody()),
     );
   }
 }

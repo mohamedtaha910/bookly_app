@@ -2,31 +2,27 @@ import 'package:bookly_app/constant.dart';
 import 'package:flutter/material.dart';
 
 class CustomShadow extends StatelessWidget {
-  const CustomShadow({super.key});
+  const CustomShadow({this.height = 45, super.key});
+  final double height;
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-
-            child: Container(
-              height: 45,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  colors: [
-                    kPrimaryColor,
-                    kPrimaryColor.withAlpha(50),
-                    kPrimaryColor.withAlpha(10),
-
-                    // Colors.transparent
-                  ],
-                ),
-              ),
-            ),
-          );
+    return Container(
+      height: height,
+      // height: 100,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            kPrimaryColor,
+            kPrimaryColor.withAlpha(200),
+            kPrimaryColor.withAlpha(100),
+            kPrimaryColor.withAlpha(10),
+            kPrimaryColor.withAlpha(0),
+          ],
+          end: AlignmentGeometry.topCenter,
+          begin: AlignmentGeometry.bottomCenter,
+        ),
+      ),
+    );
   }
 }

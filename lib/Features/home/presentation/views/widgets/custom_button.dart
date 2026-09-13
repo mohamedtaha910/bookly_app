@@ -16,8 +16,9 @@ class CustomButton extends StatelessWidget {
             child: TextButton(
               onPressed: onPressed,
               style: TextButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 12),
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 backgroundColor: Colors.white,
+                // backgroundColor: Color(0xff182034),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(12),
@@ -48,8 +49,9 @@ class CustomButton extends StatelessWidget {
             child: TextButton(
               onPressed: onPressed,
               style: TextButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 12),
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 backgroundColor: Colors.deepOrange,
+                // backgroundColor: Color(0xff22304C),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(12),

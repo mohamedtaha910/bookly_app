@@ -81,6 +81,7 @@ class BookDetailsPageBody extends StatelessWidget {
                     ),
                   ),
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Icon(
@@ -109,7 +110,7 @@ class BookDetailsPageBody extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 0,
-                    vertical: 3,
+                    vertical: 4,
                   ),
                   child: Text('(2390)', style: Styles.textStyle14),
                 ),
@@ -121,7 +122,7 @@ class BookDetailsPageBody extends StatelessWidget {
                 launchCustomUrl(context, book.volumeInfo.previewLink);
               },
             ),
-            SizedBox(height: 32),
+            SizedBox(height: 26),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [Text('You can also like', style: Styles.textStyle16)],

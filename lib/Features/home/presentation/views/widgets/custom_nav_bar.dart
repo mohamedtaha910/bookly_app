@@ -83,12 +83,15 @@ class _GlassNavBar extends StatelessWidget {
                 Colors.white.withAlpha(20),
                 Colors.white.withAlpha(15),
                 Colors.white.withAlpha(10),
+                // Colors.blueGrey.withAlpha(20),
+                // Colors.blueGrey.withAlpha(15),
+                // Colors.blueGrey.withAlpha(10),
               ],
               stops: const [0.0, 0.5, 1.0],
             ),
             border: Border(
               top: BorderSide(
-                color: Colors.grey.shade100.withAlpha(20),
+                color: Colors.grey.shade100.withAlpha(16),
                 width: 1.2,
               ),
               // right: BorderSide(
@@ -100,7 +103,7 @@ class _GlassNavBar extends StatelessWidget {
               //   width: 0.4,
               // ),
               bottom: BorderSide(
-                color: Colors.grey.shade100.withAlpha(20),
+                color: Colors.grey.shade100.withAlpha(16),
                 width: 1.2,
               ),
             ),

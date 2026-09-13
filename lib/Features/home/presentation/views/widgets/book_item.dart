@@ -84,11 +84,11 @@ class BookItem extends StatelessWidget {
                     PriceBadge(price: 'Free'),
                     Spacer(),
                     RatingBadge(rating: 3.7),
-                    SizedBox(width: 5),
+                    SizedBox(width: 8),
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 0,
-                        vertical: 2,
+                        vertical: 4,
                       ),
                       child: Text('( 2242 )', style: Styles.textStyle14),
                     ),
@@ -110,21 +110,23 @@ class PriceBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Colors.pink.withAlpha(40),
-            Colors.pink.withAlpha(20),
-            Colors.pink.withAlpha(20),
-          ],
-          begin: AlignmentGeometry.topCenter,
-          end: AlignmentGeometry.bottomCenter,
-        ),
+        color: Colors.white.withAlpha(20),
 
+        // gradient: LinearGradient(
+        //   colors: [
+        //     Colors.pink.withAlpha(40),
+        //     Colors.pink.withAlpha(20),
+        //     Colors.pink.withAlpha(20),
+        //   ],
+        //   begin: AlignmentGeometry.topCenter,
+        //   end: AlignmentGeometry.bottomCenter,
+        // ),
         borderRadius: BorderRadius.circular(100),
-        border: Border(
-          top: BorderSide(color: Colors.pink.withAlpha(50), width: 0.8),
+        border: Border.all(
+          color: Colors.grey.shade200.withAlpha(20),
+          width: 0.8,
         ),
       ),
       child: Row(
@@ -162,19 +164,20 @@ class RatingBadge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 2),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Colors.amber.withAlpha(40),
-            Colors.amber.withAlpha(30),
-            Colors.amber.withAlpha(20),
-          ],
-          begin: AlignmentGeometry.topCenter,
-          end: AlignmentGeometry.bottomCenter,
-        ),
-
+        color: Colors.white.withAlpha(20),
+        // gradient: LinearGradient(
+        //   colors: [
+        //     Colors.amber.withAlpha(40),
+        //     Colors.amber.withAlpha(30),
+        //     Colors.amber.withAlpha(20),
+        //   ],
+        //   begin: AlignmentGeometry.topCenter,
+        //   end: AlignmentGeometry.bottomCenter,
+        // ),
         borderRadius: BorderRadius.circular(100),
-        border: Border(
-          top: BorderSide(color: Colors.amber.withAlpha(50), width: 0.8),
+        border: Border.all(
+          color: Colors.grey.shade300.withAlpha(20),
+          width: 0.8,
         ),
       ),
       child: Row(

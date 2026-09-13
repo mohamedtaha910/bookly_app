@@ -38,7 +38,12 @@ class _AppRootState extends State<AppRoot> {
           pages[currentIndex],
 
           //  shadow
-          CustomShadow(),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: CustomShadow(height: 120),
+          ),
 
           LiquidGlassNavBar(
             currentIndex: currentIndex,

@@ -8,9 +8,10 @@ class BannerShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: Colors.black,
+      baseColor: Colors.white.withAlpha(50),
       // highlightColor: Colors.indigo.withAlpha(50),
-      highlightColor: kPrimaryColor,
+      highlightColor: Colors.white24,
+
       child: AspectRatio(
         aspectRatio: 0.7,
         child: Container(
