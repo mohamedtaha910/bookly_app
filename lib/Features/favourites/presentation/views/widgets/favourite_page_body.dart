@@ -21,22 +21,18 @@ class FavouritePageBody extends StatelessWidget {
           if (books.isEmpty || books == []) {
             return NoFavourite();
           }
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              child: Column(
-                children: [
-                  SizedBox(height: 110),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    // child: SearchedBookListView(books: books),
-                    child: BooksListView(books: books),
-                  ),
-                  SizedBox(height: 0),
-                ],
-              ),
+          return SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
+            scrollDirection: Axis.vertical,
+            child: Column(
+              children: [
+                SizedBox(height: 110),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  // child: SearchedBookListView(books: books),
+                  child: BooksListView(books: books),
+                ),
+              ],
             ),
           );
         }

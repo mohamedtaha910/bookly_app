@@ -163,13 +163,14 @@ class SearchPageBody extends StatelessWidget {
               right: 0,
               left: 0,
               child: Container(
-                height: 100,
+                height: 130,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
                       kPrimaryColor,
                       kPrimaryColor.withAlpha(200),
-                      kPrimaryColor.withAlpha(100),
+                      kPrimaryColor.withAlpha(120),
+                      kPrimaryColor.withAlpha(80),
                       kPrimaryColor.withAlpha(10),
                       kPrimaryColor.withAlpha(0),
                     ],

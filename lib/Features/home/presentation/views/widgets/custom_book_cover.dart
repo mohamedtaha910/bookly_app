@@ -22,15 +22,18 @@ class CustomBookCover extends StatelessWidget {
               // image: AssetImage('assets/photo/cover3.webp'),
               image: NetworkImage(imageUrl),
             ),
-            border: Border.all(width: 2, color: Colors.white10),
+            border: Border.all(
+              width: 1.2,
+              color: Colors.grey.shade200.withAlpha(25),
+            ),
             borderRadius: BorderRadius.circular(16),
-            boxShadow: [
-              BoxShadow(
-                color: kShadowColor,
-                offset: Offset(0, 1),
-                blurRadius: 4,
-              ),
-            ],
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: kShadowColor,
+            //     offset: Offset(0, 1),
+            //     blurRadius: 4,
+            //   ),
+            // ],
           ),
         ),
       ),
