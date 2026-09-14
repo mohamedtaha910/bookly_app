@@ -58,14 +58,17 @@ class BookItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  bookModel.volumeInfo.title!,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: Styles.textStyle20.copyWith(
-                    fontSize: 17,
-                    fontFamily: GoogleFonts.playfairDisplay().fontFamily,
-                    fontWeight: FontWeight.normal,
+                SizedBox(
+                  // width: MediaQuery.of(context).size.width * 0.58,
+                  child: Text(
+                    bookModel.volumeInfo.title!,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: Styles.textStyle20.copyWith(
+                      fontSize: 17,
+                      fontFamily: GoogleFonts.playfairDisplay().fontFamily,
+                      fontWeight: FontWeight.normal,
+                    ),
                   ),
                 ),
 

@@ -47,7 +47,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
 
-            Positioned(top: 9, right: 16, left: 16, child: CustomAppBar()),
+            Positioned(top: 8, right: 16, left: 16, child: CustomAppBar()),
           ],
         ),
       ),
