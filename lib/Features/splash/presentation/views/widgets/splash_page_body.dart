@@ -180,7 +180,7 @@ class _SplashPageBodyState extends State<SplashPageBody>
   }
 
   void navigateToHome() {
-    Future.delayed(const Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 3), () {
       GoRouter.of(context).pushReplacement(AppRouter.kRootPage);
     });
   }

@@ -151,6 +151,7 @@ While building this project, I practiced and improved my understanding of:
 * REST APIs
 * API integration using Dio
 * State management with Cubit
+* Implement Pagination & Pagination states
 * Local data persistence with Hive
 * Managing asynchronous operations
 * Error handling
@@ -161,7 +162,7 @@ While building this project, I practiced and improved my understanding of:
 
 | Home                                                   | Home                                                      |
 | ------------------------------------------------------ | --------------------------------------------------------- |
-| ![Home](assets/screenshots/home.jpg)                   | ![Home](assets/screenshots/home2.jpg)                     |
+| ![Home](assets/screenshots/home2.jpg)                  | ![Home](assets/screenshots/home3.jpg)                     |
 
 | Search                                                 | Search                                                    |
 | ------------------------------------------------------ | --------------------------------------------------------- |
@@ -177,7 +178,11 @@ While building this project, I practiced and improved my understanding of:
 
 | Confirm Delete                                         | Search                                                    |
 | ------------------------------------------------------ | --------------------------------------------------------- |
-| ![Delete](assets/screenshots/confirm_delete.jpg)       | ![Add](assets/screenshots/search3.jpg)                    |
+| ![Delete](assets/screenshots/delete.jpg)               | ![Add](assets/screenshots/home.jpg)                       |
+
+| Shimmer                                                | Search                                                    |
+| ------------------------------------------------------ | --------------------------------------------------------- |
+| ![Delete](assets/screenshots/home_shimmer.jpg)         | ![Add](assets/screenshots/search_shimmer.jpg)             |
 
 
 
